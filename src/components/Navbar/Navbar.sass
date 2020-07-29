@@ -1,0 +1,29 @@
+.navbar
+    height: 150px
+    width: 100%
+    background-color: black
+    display: flex
+    align-items: center
+    justify-content: space-around
+
+.burger-btn
+    display: none
+
+.desktop, .nav-items
+    display: flex
+
+.nav-items
+    width: 600px
+    margin: 0
+    padding: 0
+    list-style: none
+    justify-content: space-between
+    a
+        text-decoration: none
+        color: white
+
+@media (max-width: 900px)
+    .desktop
+        display: none
+    .burger-btn
+        display: block
