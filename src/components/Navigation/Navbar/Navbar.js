@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import classes from './Navbar.css'
-import Logo from '../Logo/Logo.js'
-import SearchBar from '../../containers/SearchBar/SearchBar'
-import Sidebar from '../../containers/Sidebar/Sidebar';
+import Logo from '../../Logo/Logo.js'
+import SearchBar from '../../../containers/SearchBar/SearchBar'
+import Sidebar from '../Sidebar/Sidebar';
 
-export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
+export default function Navbar(props) {
     return (
         <nav className="navbar">
             <Logo />
-            <div onClick={() => setIsOpen(!isOpen)} className={"menu-btn" + (isOpen ? ' open' : '')}>
+            <div onClick={props.btnClick} className={"menu-btn" + (props.sidebarIsOpen ? ' open' : '')}>
                 <div className="menu-btn__burger"></div>
             </div>
             

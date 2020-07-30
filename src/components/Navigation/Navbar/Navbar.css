@@ -25,12 +25,7 @@
 }
 
 .desktop input {
-  height: 30px;
   width: 250px;
-}
-
-.desktop input:focus {
-  outline-color: #E51A23;
 }
 
 .menu-btn {
@@ -57,8 +52,6 @@
   height: 6px;
   background: #fff;
   border-radius: 5px;
-  -webkit-box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
-          box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
@@ -71,8 +64,6 @@
   height: 6px;
   background: #fff;
   border-radius: 5px;
-  -webkit-box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
-          box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
