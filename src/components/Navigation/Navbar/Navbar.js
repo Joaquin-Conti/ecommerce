@@ -1,20 +1,19 @@
-import React, { useState } from 'react'
-import classes from './Navbar.css'
+import React from 'react'
+import styles from './Navbar.module.css'
 import Logo from '../../Logo/Logo.js'
 import SearchBar from '../../../containers/SearchBar/SearchBar'
-import Sidebar from '../Sidebar/Sidebar';
 
 export default function Navbar(props) {
     return (
-        <nav className="navbar">
+        <nav className={styles.Navbar}>
             <Logo />
-            <div onClick={props.btnClick} className={"menu-btn" + (props.sidebarIsOpen ? ' open' : '')}>
-                <div className="menu-btn__burger"></div>
+            <div onClick={props.btnClick} className={styles.MenuBtn + ' ' + (props.sidebarIsOpen ? styles.Open : '')}>
+                <div className={styles.MenuBtnBurger}></div>
             </div>
             
-            <div className='desktop'>
+            <div className={styles.Desktop}>
                 <SearchBar />
-                <ul className="nav-items">
+                <ul className={styles.NavItems}>
                     <a href="#">
                         <li>PRODUCTOS</li>
                     </a>

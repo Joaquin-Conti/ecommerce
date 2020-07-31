@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "Content.module.sass"
+    ],
+    "names": [],
+    "file": "Content.module.css"
+}

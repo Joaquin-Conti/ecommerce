@@ -1,15 +1,15 @@
 import React from 'react'
-import classes from './Sidebar.css'
+import styles from './Sidebar.module.css'
 import SearchBar from '../../../containers/SearchBar/SearchBar'
 import Logo from '../../Logo/Logo'
 
 export default function Sidebar(props) {
     return (
-        <div className={'sidebar' + (props.sidebarIsOpen ? ' open' : ' close')}>
+        <div className={styles.Sidebar + ' ' + (props.sidebarIsOpen ? styles.Open : styles.Close)}>
             <Logo />
             <SearchBar />
             <nav>
-                <ul className={classes.NavItems}>
+                <ul className={styles.NavItems}>
                     <a href="#">
                         <li>PRODUCTOS</li>
                     </a>

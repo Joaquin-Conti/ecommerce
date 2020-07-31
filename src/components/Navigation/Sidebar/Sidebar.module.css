@@ -1,4 +1,4 @@
-.sidebar {
+.Sidebar {
   background-color: black;
   width: 280px;
   position: fixed;
@@ -57,18 +57,18 @@ nav .NavItems a:hover {
 }
 
 @media (min-width: 500px) {
-  .sidebar {
+  .Sidebar {
     display: none;
   }
 }
 
-.open {
+.Open {
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
 
-.close {
+.Close {
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
 }
-/*# sourceMappingURL=Sidebar.css.map */
+/*# sourceMappingURL=Sidebar.module.css.map */

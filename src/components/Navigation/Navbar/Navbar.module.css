@@ -1,4 +1,4 @@
-.navbar {
+.Navbar {
   height: 150px;
   width: 100%;
   background-color: black;
@@ -12,23 +12,23 @@
       justify-content: space-around;
 }
 
-.desktop, .nav-items {
+.Desktop, .NavItems {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.desktop {
+.Desktop {
   width: 100%;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
 
-.desktop input {
+.Desktop input {
   width: 250px;
 }
 
-.menu-btn {
+.MenuBtn {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -47,7 +47,7 @@
   /* border: 3px solid #fff */
 }
 
-.menu-btn__burger {
+.MenuBtnBurger {
   width: 50px;
   height: 6px;
   background: #fff;
@@ -56,8 +56,8 @@
   transition: all .5s ease-in-out;
 }
 
-.menu-btn__burger::before,
-.menu-btn__burger::after {
+.MenuBtnBurger::before,
+.MenuBtnBurger::after {
   content: '';
   position: absolute;
   width: 50px;
@@ -68,18 +68,18 @@
   transition: all .5s ease-in-out;
 }
 
-.menu-btn__burger::before {
+.MenuBtnBurger::before {
   -webkit-transform: translateY(-16px);
           transform: translateY(-16px);
 }
 
-.menu-btn__burger::after {
+.MenuBtnBurger::after {
   -webkit-transform: translateY(16px);
           transform: translateY(16px);
 }
 
 /* ANIMATION */
-.menu-btn.open .menu-btn__burger {
+.MenuBtn.Open .MenuBtnBurger {
   -webkit-transform: translateX(-50px);
           transform: translateX(-50px);
   background: transparent;
@@ -87,21 +87,21 @@
           box-shadow: none;
 }
 
-.menu-btn.open .menu-btn__burger::before {
+.MenuBtn.Open .MenuBtnBurger::before {
   -webkit-transform: rotate(45deg) translate(35px, -35px);
           transform: rotate(45deg) translate(35px, -35px);
 }
 
-.menu-btn.open .menu-btn__burger::after {
+.MenuBtn.Open .MenuBtnBurger::after {
   -webkit-transform: rotate(-45deg) translate(35px, 35px);
           transform: rotate(-45deg) translate(35px, 35px);
 }
 
-.menu-btn {
+.MenuBtn {
   display: none;
 }
 
-.nav-items {
+.NavItems {
   width: 600px;
   margin: 0;
   padding: 0;
@@ -111,7 +111,7 @@
           justify-content: space-between;
 }
 
-.nav-items a {
+.NavItems a {
   text-decoration: none;
   color: white;
   font-weight: 700;
@@ -119,20 +119,20 @@
   transition: color 200ms ease-in-out;
 }
 
-.nav-items a:hover {
+.NavItems a:hover {
   color: #E51A23;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
 @media (max-width: 900px) {
-  .desktop {
+  .Desktop {
     display: none;
   }
-  .menu-btn {
+  .MenuBtn {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
 }
-/*# sourceMappingURL=Navbar.css.map */
+/*# sourceMappingURL=Navbar.module.css.map */

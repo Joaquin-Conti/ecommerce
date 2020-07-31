@@ -1,0 +1,8 @@
+input {
+  height: 30px;
+}
+
+input:focus {
+  outline-color: #E51A23;
+}
+/*# sourceMappingURL=SearchBar.module.css.map */

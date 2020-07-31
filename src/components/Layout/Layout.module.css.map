@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAAA,AAAA,IAAI,CAAC;EACD,WAAW,EAAE,wBAAwB;CAAG",
     "sources": [
-        "Layout.sass"
+        "Layout.module.sass"
     ],
     "names": [],
-    "file": "Layout.css"
+    "file": "Layout.module.css"
 }
