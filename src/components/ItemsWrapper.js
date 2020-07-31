@@ -1,4 +1,5 @@
 import React from 'react'
+import ShopItem from '../components/ShopItem/ShopItem'
 
 export default function ItemsWrapper() {
     return (

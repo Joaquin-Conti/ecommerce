@@ -16,6 +16,10 @@ export default function Sidebar(props) {
 
                     <a href="#">
                         <li>RANGO DE PRECIOS</li>
+                        <span>de</span>
+                        <input type='range'></input>
+                        <span>hasta</span>
+                        <input type='range'></input>
                     </a>
 
                     <a href="#">
@@ -23,7 +27,13 @@ export default function Sidebar(props) {
                     </a>
 
                     <a href="#">
-                        <li>TALLES</li>
+                        <form>
+                            <li>TALLES</li>
+                            <input type='radio'></input>
+                            <input type='radio'></input>
+                            <input type='radio'></input>
+                            <input type='radio'></input>
+                        </form>
                     </a>
 
                     <a href="#">
