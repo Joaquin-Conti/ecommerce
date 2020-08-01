@@ -1,4 +1,8 @@
 #KeoLogo {
   width: 200px;
 }
+
+.LogoHidden {
+  opacity: 0;
+}
 /*# sourceMappingURL=Logo.module.css.map */

@@ -6,7 +6,9 @@ import SearchBar from '../../../containers/SearchBar/SearchBar'
 export default function Navbar(props) {
     return (
         <nav className={styles.Navbar}>
-            <Logo />
+            <Logo 
+                show={props.sidebarIsOpen ? styles.LogoHidden : ''}
+            />
             <div onClick={props.btnClick} className={styles.MenuBtn + ' ' + (props.sidebarIsOpen ? styles.Open : '')}>
                 <div className={styles.MenuBtnBurger}></div>
             </div>

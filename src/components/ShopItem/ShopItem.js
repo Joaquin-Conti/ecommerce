@@ -6,9 +6,9 @@ export default function ShopItem(props) {
         <div className={styles.ShopItem}>
             <img src={props.image} alt={props.alt} />
             <h3>{props.name}</h3>
-            <p className={styles.Price}>Talles</p>
+            <p className={styles.Price}>*Talles*</p>
             <p className={styles.Price}>{props.price}</p>
-            <p><button>Añadir al carrito</button></p>
+            <button>Añadir al carrito</button>
         </div>
     )
 }
