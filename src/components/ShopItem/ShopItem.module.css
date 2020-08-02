@@ -3,10 +3,8 @@
   -webkit-box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.2);
   width: 250px;
-  height: 530px;
-  margin-bottom: 75px;
   text-align: center;
-  font-family: arial;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .ShopItem img {
@@ -14,13 +12,19 @@
   max-height: 330px;
 }
 
-.Price {
+p {
+  margin: 0;
+}
+
+.Text {
   color: grey;
   font-size: 22px;
 }
 
-p:last-child {
-  margin: 0;
+.Price {
+  font-weight: 700;
+  margin: 15px 0;
+  color: black;
 }
 
 .ShopItem button {

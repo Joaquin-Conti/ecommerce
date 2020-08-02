@@ -10,23 +10,32 @@ export default function Sidebar(props) {
             <SearchBar />
             <nav>
                 <ul className={styles.NavItems}>
-                    <a href="#">
+                    <a href="/">
                         <li>PRODUCTOS</li>
                     </a>
 
-                    <a href="#">
-                        <li>RANGO DE PRECIOS</li>
+                    <li>
+                        RANGO DE PRECIOS <br/>
                         <span>de</span>
                         <input type='range'></input>
                         <span>hasta</span>
                         <input type='range'></input>
-                    </a>
+                    </li>
 
-                    <a href="#">
-                        <li>CATEGORIAS</li>
-                    </a>
+                    <li onClick={props.arrowClicked}>CATEGORIAS <i className={"fas fa-chevron-down " + styles.Arrow}></i>
+                    {props.showCategories ? <ul className={styles.Categories}>
+                        {props.categories.map((category) => {
+                            return <li key={category+1} onClick={props.categoryClicked}>{category}</li>
+                        })}
+                        {/* <li onClick={props.categoryClicked}>Hoodies</li>
+                        <li onClick={props.categoryClicked}>Pantalones</li>
+                        <li onClick={props.categoryClicked}>Remeras</li>
+                        <li onClick={props.categoryClicked}>Camperas</li>
+                        <li onClick={props.categoryClicked}>Todos</li> */}
+                    </ul> : null}
+                    </li>
 
-                    <a href="#">
+                    <a href="/">
                         <form>
                             <li>TALLES</li>
                             <input type='radio'></input>
@@ -36,11 +45,11 @@ export default function Sidebar(props) {
                         </form>
                     </a>
 
-                    <a href="#">
+                    <a href="/">
                         <li>NOSOTROS</li>
                     </a>
                     
-                    <a href="#">
+                    <a href="/">
                         <li>CONTACTANOS</li>
                     </a>
                 </ul>

@@ -1,5 +1,6 @@
 .Sidebar {
   background-color: black;
+  overflow: scroll;
   width: 280px;
   position: fixed;
   max-width: 70%;
@@ -21,7 +22,11 @@ input {
 }
 
 nav {
-  height: calc(100% - 230px);
+  height: 100%;
+}
+
+nav .Arrow {
+  color: #E51A23;
 }
 
 nav .NavItems {
@@ -42,18 +47,19 @@ nav .NavItems {
   list-style: none;
 }
 
-nav .NavItems a {
+nav .NavItems a, nav .NavItems li {
   text-decoration: none;
   color: white;
   font-weight: 700;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
 }
 
-nav .NavItems a:hover {
+nav .NavItems li.active {
   color: #E51A23;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+}
+
+nav .NavItems .Categories {
+  font-weight: 500;
+  line-height: 2;
 }
 
 nav .NavItems input {
@@ -64,6 +70,15 @@ nav .NavItems input {
 @media (min-width: 1100px) {
   .Sidebar {
     display: none;
+  }
+  a, li {
+    -webkit-transition: color 200ms ease-in-out;
+    transition: color 200ms ease-in-out;
+  }
+  a:hover, li:hover {
+    color: #E51A23;
+    -webkit-transition: color 200ms ease-in-out;
+    transition: color 200ms ease-in-out;
   }
 }
 

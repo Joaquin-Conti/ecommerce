@@ -16,15 +16,15 @@ export default function Navbar(props) {
             <div className={styles.Desktop}>
                 <SearchBar />
                 <ul className={styles.NavItems}>
-                    <a href="#">
+                    <a href="/">
                         <li>PRODUCTOS</li>
                     </a>
 
-                    <a href="#">
+                    <a href="/">
                         <li>NOSOTROS</li>
                     </a>
                     
-                    <a href="#">
+                    <a href="/">
                         <li>CONTACTANOS</li>
                     </a>
                 </ul>
