@@ -7,9 +7,10 @@ export default function Content(props) {
         <section>
             {props.showing === 'todos' ? <h1>TODOS LOS PRODUCTOS</h1> : 
             <h1>{props.showing.toUpperCase()}</h1>
-            } {/* Should be dynamic */}
+            }
             <ItemsWrapper 
                 showing={props.showing}
+                addedToCart={props.addedToCart}
             />
         </section>
     )

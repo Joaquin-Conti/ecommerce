@@ -12,6 +12,14 @@
   max-height: 330px;
 }
 
+.ShopItem span, .ShopItem select {
+  margin-bottom: 10px;
+}
+
+.ShopItem span {
+  margin-right: 5px;
+}
+
 p {
   margin: 0;
 }
