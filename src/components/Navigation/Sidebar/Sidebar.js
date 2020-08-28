@@ -10,7 +10,7 @@ export default function Sidebar(props) {
         <div className={styles.Sidebar + ' ' + (props.sidebarIsOpen ? styles.Open : styles.Close)}>
             {/* <div className={styles.NavFixed}> */}
                 <Logo />
-                <SearchBar />
+                {/* <SearchBar /> */}
             {/* </div> */}
             <nav>
                 <ul className={styles.NavItems}>
