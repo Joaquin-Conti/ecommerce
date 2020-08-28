@@ -14,6 +14,7 @@ export default function ShopItem(props) {
                 <option value="dos">2</option>
                 <option value="tres">3</option>
                 <option value="cuatro">4</option>
+                <option value="cinco">5</option>
             </select>
             <button onClick={props.addedToCart}>Añadir al carrito</button>
         </div> : null

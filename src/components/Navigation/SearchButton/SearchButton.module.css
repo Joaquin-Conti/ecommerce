@@ -1,0 +1,36 @@
+.SearchButton {
+  background-color: #E51A23;
+  text-align: center;
+  width: 280px;
+  position: fixed;
+  overflow: scroll;
+  width: 30%;
+  height: 6%;
+  right: 0;
+  top: 150px;
+  z-index: 1;
+  color: white;
+  outline: none;
+  border: none;
+  -webkit-transition: -webkit-transform 300ms ease-out;
+  transition: -webkit-transform 300ms ease-out;
+  transition: transform 300ms ease-out;
+  transition: transform 300ms ease-out, -webkit-transform 300ms ease-out;
+}
+
+@media (min-width: 1100px) {
+  .SearchButton {
+    display: none;
+  }
+}
+
+.Open {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.Close {
+  -webkit-transform: translateX(170%);
+          transform: translateX(170%);
+}
+/*# sourceMappingURL=SearchButton.module.css.map */

@@ -18,6 +18,7 @@ function Layout(props) {
             />
             <Content
                 showing={props.showingCategory}
+                isSidebarOpen={props.isSidebarOpen}
                 addedToCart={() => props.addedToCart()}
             />
         </React.Fragment>
@@ -27,7 +28,8 @@ function Layout(props) {
 const mapStateToProps = state => {
     return {
         showingCategory: state.showingCategory,
-        carrito: state.carrito
+        carrito: state.carrito,
+        isSidebarOpen: state.sidebarIsOpen
     }
 }
 

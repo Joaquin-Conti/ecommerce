@@ -3,6 +3,7 @@
   width: 100%;
   z-index: 2;
   background-color: black;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

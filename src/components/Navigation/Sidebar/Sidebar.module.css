@@ -1,9 +1,9 @@
 .Sidebar {
   background-color: black;
-  overflow: scroll;
   width: 280px;
   position: fixed;
-  max-width: 70%;
+  overflow: scroll;
+  width: 70%;
   height: 100%;
   left: 0;
   top: 0;
@@ -19,10 +19,12 @@
 
 input {
   height: 30px;
+  width: 80%;
 }
 
 nav {
   height: 100%;
+  overflow: scroll;
 }
 
 nav .Arrow {
@@ -60,6 +62,12 @@ nav .NavItems li.active {
 nav .NavItems .Categories {
   font-weight: 500;
   line-height: 2;
+}
+
+nav .NavItems .RangeSearch {
+  width: 50px;
+  height: 20px;
+  margin: 10px 15px;
 }
 
 nav .NavItems input {

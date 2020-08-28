@@ -1,6 +1,7 @@
 const initialState = {
     showingCategory: 'todos',
-    carrito: 0
+    carrito: 0,
+    sidebarIsOpen: false
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -20,6 +21,11 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 carrito: state.carrito - 1
             }
+        case 'SIDEBAR_TOGGLED':
+        return {
+            ...state,
+            sidebarIsOpen: !state.sidebarIsOpen
+        }
         default:
             return state
     }
