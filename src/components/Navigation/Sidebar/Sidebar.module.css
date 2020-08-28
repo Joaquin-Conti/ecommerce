@@ -8,7 +8,7 @@
   left: 0;
   top: 0;
   z-index: 1;
-  padding-left: 32px;
+  padding: 0 32px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-transition: -webkit-transform 300ms ease-out;
@@ -29,6 +29,20 @@ nav {
 
 nav .Arrow {
   color: #E51A23;
+  -webkit-transition: -webkit-transform 300ms ease-out;
+  transition: -webkit-transform 300ms ease-out;
+  transition: transform 300ms ease-out;
+  transition: transform 300ms ease-out, -webkit-transform 300ms ease-out;
+}
+
+nav .ArrowClose {
+  -webkit-transform: rotateZ(0%);
+          transform: rotateZ(0%);
+}
+
+nav .ArrowOpen {
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
 }
 
 nav .NavItems {
@@ -66,8 +80,12 @@ nav .NavItems .Categories {
 
 nav .NavItems .RangeSearch {
   width: 50px;
-  height: 20px;
+  height: 15px;
   margin: 10px 15px;
+}
+
+nav .NavItems .RangeSearch:last-child {
+  margin: 0 15px;
 }
 
 nav .NavItems .Talles {

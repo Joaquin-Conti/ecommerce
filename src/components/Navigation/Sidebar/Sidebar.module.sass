@@ -10,7 +10,7 @@ $keoRed: #E51A23
     left: 0
     top: 0
     z-index: 1
-    padding-left: 32px
+    padding: 0 32px
     box-sizing: border-box
     transition: transform 300ms ease-out
 
@@ -22,6 +22,12 @@ nav
     overflow: scroll
     .Arrow
         color: $keoRed
+        transition: transform 300ms ease-out
+    .ArrowClose
+        transform: rotateZ(0%)
+    .ArrowOpen
+        transform: rotateZ(90deg)
+    
     .NavItems
         height: 100%
         width: 100%
@@ -42,8 +48,10 @@ nav
             line-height: 2
         .RangeSearch
             width: 50px
-            height: 20px
+            height: 15px
             margin: 10px 15px
+            &:last-child
+                margin: 0 15px
         .Talles
             margin-top: 10px
             display: flex

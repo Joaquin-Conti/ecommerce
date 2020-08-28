@@ -9,15 +9,22 @@ function Layout(props) {
     function addedToCart() {
         
     }
+
+    // useEffect(() => {
+    //     effect
+    //     return () => {
+    //         cleanup
+    //     }
+    // }, [props.])
     
     return (
         <React.Fragment>
             <Navigation
-                categoryClicked={(e) => props.onCategorySelect(e.target.innerText.toLowerCase())}
-                showing={props.showingCategory}
+                categorySelected={(e) => props.onCategorySelect(e.target.innerText.toLowerCase())}
+                showing={props.config.selectedCategory}
             />
             <Content
-                showing={props.showingCategory}
+                showing={props.config.selectedCategory}
                 isSidebarOpen={props.isSidebarOpen}
                 addedToCart={() => props.addedToCart()}
             />
@@ -27,7 +34,7 @@ function Layout(props) {
 
 const mapStateToProps = state => {
     return {
-        showingCategory: state.showingCategory,
+        config: {...state.onSearchOptions},
         carrito: state.carrito,
         isSidebarOpen: state.sidebarIsOpen
     }

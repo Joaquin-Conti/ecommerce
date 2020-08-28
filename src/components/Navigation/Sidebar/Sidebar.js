@@ -4,6 +4,8 @@ import SearchBar from '../../../containers/SearchBar/SearchBar'
 import Logo from '../../Logo/Logo'
 
 export default function Sidebar(props) {
+    
+    
     return (
         <div className={styles.Sidebar + ' ' + (props.sidebarIsOpen ? styles.Open : styles.Close)}>
             {/* <div className={styles.NavFixed}> */}
@@ -18,26 +20,27 @@ export default function Sidebar(props) {
                     <li>
                         RANGO DE PRECIOS <br/>
                         <span>de</span>
-                        <input className={styles.RangeSearch} type='number'></input>
+                        <input onChange={props.minPriceSelected} className={styles.RangeSearch} type='number'></input>
+                        <br />
                         <span>hasta</span>
-                        <input className={styles.RangeSearch} type='number'></input>
+                        <input onChange={props.maxPriceSelected} className={styles.RangeSearch} type='number'></input>
                     </li>
 
-                    <li onClick={props.arrowClicked}>CATEGORIAS <i className={"fas fa-chevron-down " + styles.Arrow}></i>
+                    <li >CATEGORIAS <i onClick={props.arrowClicked}className={"fas fa-chevron-down " + styles.Arrow + ' ' + (props.showCategories ? styles.ArrowOpen : styles.ArrowClose)}></i>
                     {props.showCategories ? <ul className={styles.Categories}>
                         {props.categories.map((category) => {
-                            return <li key={category+1} onClick={props.categoryClicked}>{category}</li>
+                            return <li key={category+1} onClick={props.changeColor, props.categorySelected}>{category}</li>
                         })}
                     </ul> : null}
                     </li>
 
                     <li>
                         TALLES
-                        <form className={styles.Talles}>
-                            <a href="/"><input name="talle" type="radio" value="S" />S</a>
-                            <a href="/"><input name="talle" type="radio" value="M" />M</a>
-                            <a href="/"><input name="talle" type="radio" value="L" />L</a>
-                            <a href="/"><input name="talle" type="radio" value="XL" />XL</a>
+                        <form className={styles.Talles} onChange={props.talleSelected}>
+                            <label for="S">S<input name="talle" type="radio" value="S" /></label>
+                            <label for="M">M<input name="talle" type="radio" value="M" /></label>
+                            <label for="L">L<input name="talle" type="radio" value="L" /></label>
+                            <label for="XL">XL<input name="talle" type="radio" value="XL" /></label>
                         </form>
                     </li>
 

@@ -6,22 +6,32 @@ import { connect } from 'react-redux';
 import SearchButton from './SearchButton/SearchButton';
 
 function Navigation(props) {
-    // const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
     const [categoriesOpen, setCategoriesOpen] = useState(false);
-    const [firstRender, setFirstRender] = useState(true);
+    // const [firstRender, setFirstRender] = useState(true);
     const categoriesArray = ['Hoodies','Pantalones','Remeras','Camperas','Todos']
 
+    //HIDES BODY SCROLLING ON WHEN SIDEBAR IS OPEN
     props.sidebarIsOpen ? document.getElementsByTagName('body')[0].style.overflow = "hidden" : 
     document.getElementsByTagName('body')[0].style.overflow = "scroll";
 
+    //CHANGES COLOR OF SELECTED CATEGORY
+    function changeColor (e) {
+        const siblings = Array.from(e.target.parentNode.childNodes);
+        siblings.map((sibling) => {
+            return sibling.style.color = "white";
+        })
+        e.target.style.color = "#E51A23";
+    }
+
+    //SHOULD CLOSE SIDEBAR AND RENDER SEARCH RESULT ITEMS
     useEffect(() => {
-        if(firstRender) {
-            setFirstRender(false);
-        }
-        if(!firstRender) {
-            props.onSidebarToggled();
-        }
-    }, [props.showing])
+        // if(firstRender) {
+        //     setFirstRender(false);
+        // }
+        // if(!firstRender) {
+        //     props.onSidebarToggled();
+        // }
+    }, [{...props.onSearchOptions}])
     
     return (
         <React.Fragment>
@@ -37,24 +47,35 @@ function Navigation(props) {
                 sidebarIsOpen={props.sidebarIsOpen}
                 arrowClicked={() => setCategoriesOpen(!categoriesOpen)}
                 showCategories={categoriesOpen}
-                categoryClicked={props.categoryClicked}
+                categorySelected={(e) => props.onCategorySelected(e)}
+                talleSelected={(e) => props.onTalleSelected(e)}
+                minPriceSelected={(e) => props.onMinPriceSelected(e)}
+                maxPriceSelected={(e) => props.onMaxPriceSelected(e)}
                 categories={categoriesArray}
+                changeColor={(e) => changeColor(e)}
             />
             <SearchButton 
                 sidebarIsOpen={props.sidebarIsOpen}
+                searchClicked={() => props.onSearchClicked()}
             />
         </React.Fragment>
     )
 }
 const mapStateToProps = state => {
     return {
+        onSearchOptions: {...state.onSearchOptions},
         sidebarIsOpen: state.sidebarIsOpen
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSidebarToggled: () => dispatch({type: 'SIDEBAR_TOGGLED'})
+        onSidebarToggled: () => {window.scrollTo(0, 0); return dispatch({type: 'SIDEBAR_TOGGLED'})},
+        onSearchClicked: () => dispatch({type: 'SEARCH_BUTTON_CLICKED'}),
+        onCategorySelected: (e) => dispatch({type: 'CATEGORY_SELECTED', payload: e.target.innerHTML.toLowerCase()}),
+        onTalleSelected: (e) => dispatch({type: 'TALLE_SELECTED', payload: e.target.value}),
+        onMinPriceSelected: (e) => dispatch({type: 'MIN_PRICE_SELECTED', payload: e.target.value}),
+        onMaxPriceSelected: (e) => dispatch({type: 'MAX_PRICE_SELECTED', payload: e.target.value})
     };
 };
 

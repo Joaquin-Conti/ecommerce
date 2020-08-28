@@ -1,10 +1,30 @@
 .ShopItem {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.2);
   width: 250px;
+  height: 550px;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
+}
+
+.ShopItem .ImgDiv {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .ShopItem img {
