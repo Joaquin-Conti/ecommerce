@@ -33,11 +33,11 @@ export default function Sidebar(props) {
 
                     <li>
                         TALLES
-                        <form>
-                            <input type='radio'></input>
-                            <input type='radio'></input>
-                            <input type='radio'></input>
-                            <input type='radio'></input>
+                        <form className={styles.Talles}>
+                            <a href="/"><input name="talle" type="radio" value="S" />S</a>
+                            <a href="/"><input name="talle" type="radio" value="M" />M</a>
+                            <a href="/"><input name="talle" type="radio" value="L" />L</a>
+                            <a href="/"><input name="talle" type="radio" value="XL" />XL</a>
                         </form>
                     </li>
 
