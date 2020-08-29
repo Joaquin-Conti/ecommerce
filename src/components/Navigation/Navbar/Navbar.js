@@ -9,12 +9,15 @@ export default function Navbar(props) {
             <Logo 
                 show={props.sidebarIsOpen ? styles.LogoHidden : ''}
             />
+            {props.sidebarIsOpen ? null : <i className={`fas fa-shopping-cart fa-2x ${styles.MobileCart}`}></i>}
             <div onClick={props.btnClick} className={styles.MenuBtn + ' ' + (props.sidebarIsOpen ? styles.Open : '')}>
                 <div className={styles.MenuBtnBurger}></div>
             </div>
+
+            
             
             <div className={styles.Desktop}>
-                <SearchBar />
+                {/* <SearchBar /> */}
                 <ul className={styles.NavItems}>
                     <a href="/">
                         <li>PRODUCTOS</li>
@@ -28,6 +31,7 @@ export default function Navbar(props) {
                         <li>CONTACTANOS</li>
                     </a>
                 </ul>
+                {props.sidebarIsOpen ? null : <i className={`fas fa-shopping-cart fa-2x`}></i>}
             </div>
         </nav>
     )

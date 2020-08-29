@@ -4,13 +4,13 @@ $keoRed: #E51A23
     background-color: black
     width: 280px
     position: fixed
-    overflow: scroll
+    overflow: hidden
     width: 70%
     height: 100%
     left: 0
     top: 0
     z-index: 1
-    padding: 0 32px
+    padding: 0 32px 40px
     box-sizing: border-box
     transition: transform 300ms ease-out
 
@@ -19,7 +19,7 @@ input
     width: 80%
 nav
     height: 100%
-    overflow: scroll
+    overflow: hidden
     .Arrow
         color: $keoRed
         transition: transform 300ms ease-out
@@ -46,6 +46,8 @@ nav
         .Categories
             font-weight: 500
             line-height: 2
+            li
+                user-select: none
         .RangeSearch
             width: 50px
             height: 15px
@@ -63,15 +65,17 @@ nav
 
 @media (min-width: 1100px)
     .Sidebar
-        display: none
-    a, li
-        transition: color 200ms ease-in-out
+        width: 20vw
+        overflow: scroll
+        // display: none
+    li
+        transition: color 100ms ease-in
         &:hover
             color: $keoRed
-            transition: color 200ms ease-in-out
+            transition: color 100ms ease-in
 
 .Open
     transform: translateX(0)
 
 .Close
-    transform: translateX(-100%)
+    transform: translateX(-20vw)

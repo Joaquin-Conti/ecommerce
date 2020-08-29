@@ -8,7 +8,7 @@ import SearchButton from './SearchButton/SearchButton';
 function Navigation(props) {
     const [categoriesOpen, setCategoriesOpen] = useState(false);
     // const [firstRender, setFirstRender] = useState(true);
-    const categoriesArray = ['Hoodies','Pantalones','Remeras','Camperas','Todos']
+    const categoriesArray = ['Hoodies','Pantalones','Remeras','Todos']
 
     //HIDES BODY SCROLLING ON WHEN SIDEBAR IS OPEN
     props.sidebarIsOpen ? document.getElementsByTagName('body')[0].style.overflow = "hidden" : 
@@ -16,9 +16,11 @@ function Navigation(props) {
 
     //CHANGES COLOR OF SELECTED CATEGORY
     function changeColor (e) {
-        const siblings = Array.from(e.target.parentNode.childNodes);
-        siblings.map((sibling) => {
-            return sibling.style.color = "white";
+        const liArray = Array.from(e.target.parentNode.parentNode.childNodes);
+        liArray.map((li) => {
+            return Array.from(li.childNodes).map((sibling) => {
+                return sibling.style.color = "white";
+            })
         })
         e.target.style.color = "#E51A23";
     }
@@ -56,7 +58,7 @@ function Navigation(props) {
             />
             <SearchButton 
                 sidebarIsOpen={props.sidebarIsOpen}
-                searchClicked={() => props.onSearchClicked()}
+                searchClicked={() => {props.onSidebarToggled(); props.onSearchClicked()}}
             />
         </React.Fragment>
     )

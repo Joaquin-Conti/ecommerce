@@ -14,6 +14,14 @@
       justify-content: space-around;
 }
 
+.MobileCart {
+  display: none;
+}
+
+i {
+  color: white;
+}
+
 .Desktop, .NavItems {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -99,10 +107,6 @@
           transform: rotate(-45deg) translate(35px, 35px);
 }
 
-.MenuBtn {
-  display: none;
-}
-
 .NavItems {
   width: 600px;
   margin: 0;
@@ -115,19 +119,25 @@
 
 .NavItems a {
   text-decoration: none;
-  color: white;
   font-weight: 700;
+}
+
+.NavItems a li {
+  color: white;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.NavItems a:hover {
+.NavItems a li:hover {
   color: #E51A23;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
 @media (max-width: 1100px) {
+  .MobileCart {
+    display: inline-block;
+  }
   .Desktop {
     display: none;
   }

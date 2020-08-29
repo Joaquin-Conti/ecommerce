@@ -1,5 +1,5 @@
 import React from 'react'
-import yellowHoodie from '../../assets/images/yellow-hoodie.jpg'
+// import yellowHoodie from '../../assets/images/yellow-hoodie.jpg'
 import hoodieAzul from '../../assets/images/blue-hoodie-kotk.jpg'
 import jeanNegro from '../../assets/images/jean-negro.jpeg'
 import remeraGot1 from '../../assets/images/remera-got1.jpg'
@@ -8,7 +8,7 @@ import gotHoodie from '../../assets/images/got-hoodie.jpg'
 import hoodiePinkFloyd from '../../assets/images/hoodie-pink-floyd.jpg'
 import ShopItem from '../ShopItem/ShopItem'
 import styles from './ItemsWrapper.module.css'
-import allProducts from '../../containers/Products'
+// import allProducts from '../../containers/Products'
 
 export default function ItemsWrapper(props) {
 

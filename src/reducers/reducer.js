@@ -1,6 +1,9 @@
 const initialState = {
     highestPrice: 2199,
     lowestPrice: 699,
+    resultsAvailable: true,
+    /* WHEN USER IS SELECTING,
+    THIS PROPERTY IS UPDATED */
     browseOptions: {
         searchBarInput: '',
         selectedCategory: 'todos',
@@ -8,6 +11,8 @@ const initialState = {
         maxPrice: 2199,
         talle: 'todos'
     },
+    /* ON SEARCH BUTTON CLICK, COPIES ALL browseOptions
+    PROPERTIES */
     onSearchOptions: {
         searchBarInput: '',
         selectedCategory: 'todos',
@@ -22,7 +27,6 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SEARCH_BUTTON_CLICKED':
-            console.log("btn clicked");
             return {
                 ...state,
                 onSearchOptions : {
@@ -68,6 +72,11 @@ const rootReducer = (state = initialState, action) => {
                     ...state.browseOptions,
                     talle: action.payload
                 }
+            }
+        case 'RESULTS_AVAILABLE_TOGGLED':
+            return {
+                ...state,
+                resultsAvailable: !state.resultsAvailable
             }
         case 'PRODUCT_ADDED':
             return {

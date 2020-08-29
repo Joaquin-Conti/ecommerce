@@ -2,13 +2,13 @@
   background-color: black;
   width: 280px;
   position: fixed;
-  overflow: scroll;
+  overflow: hidden;
   width: 70%;
   height: 100%;
   left: 0;
   top: 0;
   z-index: 1;
-  padding: 0 32px;
+  padding: 0 32px 40px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-transition: -webkit-transform 300ms ease-out;
@@ -24,7 +24,7 @@ input {
 
 nav {
   height: 100%;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 nav .Arrow {
@@ -78,6 +78,13 @@ nav .NavItems .Categories {
   line-height: 2;
 }
 
+nav .NavItems .Categories li {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 nav .NavItems .RangeSearch {
   width: 50px;
   height: 15px;
@@ -105,16 +112,17 @@ nav .NavItems .Talles input[type="radio"] {
 
 @media (min-width: 1100px) {
   .Sidebar {
-    display: none;
+    width: 20vw;
+    overflow: scroll;
   }
-  a, li {
-    -webkit-transition: color 200ms ease-in-out;
-    transition: color 200ms ease-in-out;
+  li {
+    -webkit-transition: color 100ms ease-in;
+    transition: color 100ms ease-in;
   }
-  a:hover, li:hover {
+  li:hover {
     color: #E51A23;
-    -webkit-transition: color 200ms ease-in-out;
-    transition: color 200ms ease-in-out;
+    -webkit-transition: color 100ms ease-in;
+    transition: color 100ms ease-in;
   }
 }
 
@@ -124,7 +132,7 @@ nav .NavItems .Talles input[type="radio"] {
 }
 
 .Close {
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+  -webkit-transform: translateX(-20vw);
+          transform: translateX(-20vw);
 }
 /*# sourceMappingURL=Sidebar.module.css.map */

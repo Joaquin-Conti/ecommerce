@@ -1,11 +1,9 @@
 import React from 'react'
 import styles from './Sidebar.module.css'
-import SearchBar from '../../../containers/SearchBar/SearchBar'
+// import SearchBar from '../../../containers/SearchBar/SearchBar'
 import Logo from '../../Logo/Logo'
 
 export default function Sidebar(props) {
-    
-    
     return (
         <div className={styles.Sidebar + ' ' + (props.sidebarIsOpen ? styles.Open : styles.Close)}>
             {/* <div className={styles.NavFixed}> */}
@@ -26,10 +24,10 @@ export default function Sidebar(props) {
                         <input onChange={props.maxPriceSelected} className={styles.RangeSearch} type='number'></input>
                     </li>
 
-                    <li >CATEGORIAS <i onClick={props.arrowClicked}className={"fas fa-chevron-down " + styles.Arrow + ' ' + (props.showCategories ? styles.ArrowOpen : styles.ArrowClose)}></i>
+                    <li >CATEGORIAS <i onClick={props.arrowClicked} className={"fas fa-chevron-down " + styles.Arrow + ' ' + (props.showCategories ? styles.ArrowOpen : styles.ArrowClose)}></i>
                     {props.showCategories ? <ul className={styles.Categories}>
                         {props.categories.map((category) => {
-                            return <li key={category+1} onClick={props.changeColor, props.categorySelected}>{category}</li>
+                            return <li key={category+1} onClick={(e) => {props.changeColor(e); props.categorySelected(e)}}>{category}</li>
                         })}
                     </ul> : null}
                     </li>
@@ -37,10 +35,10 @@ export default function Sidebar(props) {
                     <li>
                         TALLES
                         <form className={styles.Talles} onChange={props.talleSelected}>
-                            <label for="S">S<input name="talle" type="radio" value="S" /></label>
-                            <label for="M">M<input name="talle" type="radio" value="M" /></label>
-                            <label for="L">L<input name="talle" type="radio" value="L" /></label>
-                            <label for="XL">XL<input name="talle" type="radio" value="XL" /></label>
+                            <label htmlFor="S">S<input name="talle" type="radio" value="S" /></label>
+                            <label htmlFor="M">M<input name="talle" type="radio" value="M" /></label>
+                            <label htmlFor="L">L<input name="talle" type="radio" value="L" /></label>
+                            <label htmlFor="XL">XL<input name="talle" type="radio" value="XL" /></label>
                         </form>
                     </li>
 
