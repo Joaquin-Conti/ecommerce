@@ -16,6 +16,7 @@
   transition: -webkit-transform 300ms ease-out;
   transition: transform 300ms ease-out;
   transition: transform 300ms ease-out, -webkit-transform 300ms ease-out;
+  cursor: pointer;
 }
 
 .Open {

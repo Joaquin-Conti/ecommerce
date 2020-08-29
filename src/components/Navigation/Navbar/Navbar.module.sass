@@ -24,7 +24,7 @@ i
 
 .Desktop
   width: 100%
-  justify-content: space-around
+  justify-content: space-evenly
   input
     width: 250px
 
@@ -61,18 +61,7 @@ i
   
 .MenuBtnBurger::after
   transform: translateY(16px)
-  
-/* ANIMATION */
-.MenuBtn.Open .MenuBtnBurger
-  transform: translateX(-50px)
-  background: transparent
-  box-shadow: none
-  
-.MenuBtn.Open .MenuBtnBurger::before
-  transform: rotate(45deg) translate(35px, -35px)
-  
-.MenuBtn.Open .MenuBtnBurger::after
-  transform: rotate(-45deg) translate(35px, 35px)
+
 
 // DON'T SHOW IN DESKTOP
 // .MenuBtn
@@ -85,20 +74,37 @@ i
     list-style: none
     justify-content: space-between
     a
-        text-decoration: none
-        font-weight: 700
-        li
-          color: white
+      text-decoration: none
+      display: inline-flex
+      align-items: center
+      font-weight: 700
+      li
+        color: white
+        transition: color 200ms ease-in-out
+        &:hover
+          color: $keoRed
           transition: color 200ms ease-in-out
-          &:hover
-              color: $keoRed
-              transition: color 200ms ease-in-out
-   
 
+// @media (min-width: )
+   
+//ON MOBILE
 @media (max-width: 1100px)
-    .MobileCart
-      display: inline-block
-    .Desktop
-      display: none
-    .MenuBtn
-      display: flex
+  /* ANIMATION */
+  .MenuBtn.Open .MenuBtnBurger
+    transform: translateX(-50px)
+    background: transparent
+    box-shadow: none
+  .MenuBtn.Open .MenuBtnBurger::before
+    transform: rotate(45deg) translate(35px, -35px)
+  .MenuBtn.Open .MenuBtnBurger::after
+    transform: rotate(-45deg) translate(35px, 35px)
+
+  .MobileCart
+    display: inline-block
+    opacity: 1
+    &.NotVisible
+      opacity: 0
+  .Desktop
+    display: none
+  .MenuBtn
+    display: flex

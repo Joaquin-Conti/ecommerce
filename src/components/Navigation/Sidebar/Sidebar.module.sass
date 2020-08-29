@@ -4,7 +4,7 @@ $keoRed: #E51A23
     background-color: black
     width: 280px
     position: fixed
-    overflow: hidden
+    overflow: scroll
     width: 70%
     height: 100%
     left: 0
@@ -23,51 +23,59 @@ nav
     .Arrow
         color: $keoRed
         transition: transform 300ms ease-out
+        cursor: pointer
     .ArrowClose
         transform: rotateZ(0%)
     .ArrowOpen
         transform: rotateZ(90deg)
     
-    .NavItems
-        height: 100%
-        width: 100%
+.NavItems
+    height: 100%
+    width: 100%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    margin: 0
+    padding: 0
+    list-style: none
+    a, li
+        text-decoration: none
+        color: white
+        font-weight: 700
+    li.active
+        color: $keoRed
+    .Categories
+        font-weight: 500
+        line-height: 2
+        li
+            user-select: none
+            cursor: pointer
+    .RangeSearch
+        width: 50px
+        height: 15px
+        margin: 10px 15px
+        &:last-child
+            margin: 0 15px
+    .Talles
+        margin-top: 10px
         display: flex
-        flex-direction: column
-        justify-content: space-between
-        margin: 0
-        padding: 0
-        list-style: none
-        a, li
-            text-decoration: none
-            color: white
-            font-weight: 700
-        li.active
-            color: $keoRed
-        .Categories
-            font-weight: 500
-            line-height: 2
-            li
-                user-select: none
-        .RangeSearch
-            width: 50px
-            height: 15px
-            margin: 10px 15px
-            &:last-child
-                margin: 0 15px
-        .Talles
-            margin-top: 10px
-            display: flex
-            justify-content: space-around
-            text-align: center
-            input[type="radio"]
-                width: 25px
-                display: block
+        justify-content: space-around
+        text-align: center
+        input[type="radio"]
+            cursor: pointer
+            width: 25px
+            display: block
 
 @media (min-width: 1100px)
     .Sidebar
         width: 20vw
         overflow: scroll
         // display: none
+        .NavItems
+            justify-content: space-around
+            li
+                color: white
+                
     li
         transition: color 100ms ease-in
         &:hover
@@ -78,4 +86,4 @@ nav
     transform: translateX(0)
 
 .Close
-    transform: translateX(-20vw)
+    transform: translateX(-100%)

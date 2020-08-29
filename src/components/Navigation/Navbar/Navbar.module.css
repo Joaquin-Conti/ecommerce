@@ -30,8 +30,9 @@ i {
 
 .Desktop {
   width: 100%;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .Desktop input {
@@ -88,25 +89,6 @@ i {
           transform: translateY(16px);
 }
 
-/* ANIMATION */
-.MenuBtn.Open .MenuBtnBurger {
-  -webkit-transform: translateX(-50px);
-          transform: translateX(-50px);
-  background: transparent;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.MenuBtn.Open .MenuBtnBurger::before {
-  -webkit-transform: rotate(45deg) translate(35px, -35px);
-          transform: rotate(45deg) translate(35px, -35px);
-}
-
-.MenuBtn.Open .MenuBtnBurger::after {
-  -webkit-transform: rotate(-45deg) translate(35px, 35px);
-          transform: rotate(-45deg) translate(35px, 35px);
-}
-
 .NavItems {
   width: 600px;
   margin: 0;
@@ -119,6 +101,12 @@ i {
 
 .NavItems a {
   text-decoration: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-weight: 700;
 }
 
@@ -135,8 +123,28 @@ i {
 }
 
 @media (max-width: 1100px) {
+  /* ANIMATION */
+  .MenuBtn.Open .MenuBtnBurger {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    background: transparent;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .MenuBtn.Open .MenuBtnBurger::before {
+    -webkit-transform: rotate(45deg) translate(35px, -35px);
+            transform: rotate(45deg) translate(35px, -35px);
+  }
+  .MenuBtn.Open .MenuBtnBurger::after {
+    -webkit-transform: rotate(-45deg) translate(35px, 35px);
+            transform: rotate(-45deg) translate(35px, 35px);
+  }
   .MobileCart {
     display: inline-block;
+    opacity: 1;
+  }
+  .MobileCart.NotVisible {
+    opacity: 0;
   }
   .Desktop {
     display: none;
