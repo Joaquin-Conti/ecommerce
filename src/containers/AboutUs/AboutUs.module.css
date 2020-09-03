@@ -1,0 +1,54 @@
+main .Flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .Flex h3 {
+  margin: 3px 0 2px;
+}
+
+.Redes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Redes a {
+  color: black;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.Redes a:hover {
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.Redes a:first-child:hover {
+  color: #cc33d1;
+}
+
+.Redes a:nth-child(2):hover {
+  color: #304099;
+}
+
+.Redes a:last-child:hover {
+  color: #36ad32;
+}
+
+p {
+  line-height: 2;
+}
+/*# sourceMappingURL=AboutUs.module.css.map */

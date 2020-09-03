@@ -1,11 +1,12 @@
 import React from 'react'
 import logo from '../../assets/images/keo-logo.jpeg'
 import styles from './Logo.module.css'
+import { Link } from 'react-router-dom'
 
 export default function Logo(props) {
     return (
-        <a href="/">
+        <Link to="/ecommerce">
             <img className={props.show} id={styles.KeoLogo} src={logo} alt="logo-img" />
-        </a>
+        </Link>
     )
 }

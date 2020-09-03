@@ -1,6 +1,6 @@
+import allProducts from '../containers/products.json'
+
 const initialState = {
-    highestPrice: 2199,
-    lowestPrice: 699,
     resultsAvailable: true,
     /* WHEN USER IS SELECTING,
     THIS PROPERTY IS UPDATED */
@@ -20,7 +20,11 @@ const initialState = {
         maxPrice: 2199,
         talle: 'todos'
     },
-    carrito: 0,
+    cart: {
+        numberOfItems: 0,
+        totalPrice: 0,
+        items: []
+    },
     sidebarIsOpen: false,
 }
 
@@ -29,6 +33,7 @@ const rootReducer = (state = initialState, action) => {
         case 'SEARCH_BUTTON_CLICKED':
             return {
                 ...state,
+                filterOptionsSelected: true,
                 onSearchOptions : {
                     ...state.browseOptions
                 }
@@ -81,12 +86,21 @@ const rootReducer = (state = initialState, action) => {
         case 'PRODUCT_ADDED':
             return {
                 ...state,
-                carrito: state.carrito + 1
+                cart: {
+                    ...state.cart,
+                    numberOfItems: state.cart.numberOfItems + action.payload.quantity,
+                    totalPrice: state.cart.totalPrice + action.payload.price
+                    // items: state.cart.items.push(action.payload.item)
+                }
             }
         case 'PRODUCT_REMOVED':
             return {
                 ...state,
-                carrito: state.carrito - 1
+                cart: {
+                    ...state.cart,
+                    numberOfItems: state.cart.numberOfItems - action.payload.quantity,
+                    totalPrice: state.cart.totalPrice - action.payload.price
+                }
             }
         case 'SIDEBAR_TOGGLED':
             return {

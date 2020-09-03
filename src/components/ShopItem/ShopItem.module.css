@@ -68,6 +68,6 @@ p {
 }
 
 .ShopItem button:hover {
-  background-color: #E51A23;
+  opacity: .7;
 }
 /*# sourceMappingURL=ShopItem.module.css.map */

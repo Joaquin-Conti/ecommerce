@@ -4,6 +4,8 @@ $keoRed: #E51A23
   // position: fixed
   // top: 0
   // left: 0
+  color: white
+  padding-right: 15px
   height: 150px
   width: 100%
   z-index: 2
@@ -12,12 +14,23 @@ $keoRed: #E51A23
   display: flex
   align-items: center
   justify-content: space-around
+
+.Cart
+  height: 75px
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-around
+  a
+    color: white
+    text-decoration: none
+  span
+    font-weight: 700
+    margin: 10px 0
+  
   
 .MobileCart
   display: none
-
-i
-  color: white
 
 .Desktop, .NavItems
   display: flex
@@ -72,20 +85,19 @@ i
     margin: 0
     padding: 0
     list-style: none
+    align-items: center
     justify-content: space-between
-    a
-      text-decoration: none
-      display: inline-flex
-      align-items: center
-      font-weight: 700
-      li
+    li
+      transition: color 200ms ease-in-out
+      a
+        text-decoration: none
         color: white
-        transition: color 200ms ease-in-out
+        font-weight: 700
         &:hover
           color: $keoRed
           transition: color 200ms ease-in-out
-
-// @media (min-width: )
+        &:focus
+          color: $keoRed
    
 //ON MOBILE
 @media (max-width: 1100px)
@@ -100,10 +112,10 @@ i
     transform: rotate(-45deg) translate(35px, 35px)
 
   .MobileCart
-    display: inline-block
+    display: flex
     opacity: 1
-    &.NotVisible
-      opacity: 0
+  .NotVisible
+    opacity: 0
   .Desktop
     display: none
   .MenuBtn

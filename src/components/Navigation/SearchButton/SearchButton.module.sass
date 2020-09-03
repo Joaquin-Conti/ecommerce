@@ -16,23 +16,29 @@ $keoRed: #E51A23
     border: none
     transition: transform 300ms ease-out
     cursor: pointer
+    &:active
+        opacity: .8
 
-.Open
+.SearchButton.Desktop
+    display: none
+.Open.Mobile
     transform: translateX(0)
-
-.Close
+.Close.Mobile
     transform: translateX(170%)
 
 @media (min-width: 1100px)
-    .SearchButton
-        width: 13vw
+    .SearchButton.Desktop
+        display: inline-block
+        width: 11vw
         font-size: 20px
         height: 50px
-        left: 20vw
+        left: 15vw
         top: 150px
         overflow: hidden
     //     display: none
-    .Open
+    .SearchButton.Mobile
+        display: none
+    .Open.Desktop
         transform: translateY(v)
-    .Close
+    .Close.Desktop
         transform: translateY(-20vw)

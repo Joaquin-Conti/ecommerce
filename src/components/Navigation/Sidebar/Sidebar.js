@@ -2,8 +2,10 @@ import React from 'react'
 import styles from './Sidebar.module.css'
 // import SearchBar from '../../../containers/SearchBar/SearchBar'
 import Logo from '../../Logo/Logo'
+import { Link } from 'react-router-dom'
 
 export default function Sidebar(props) {
+    
     return (
         <div className={styles.Sidebar + ' ' + (props.sidebarIsOpen ? styles.Open : styles.Close)}>
             {/* <div className={styles.NavFixed}> */}
@@ -13,7 +15,7 @@ export default function Sidebar(props) {
             <nav>
                 <ul className={styles.NavItems}>
                     <li>
-                        <a href="/">PRODUCTOS</a>
+                        <Link to="/ecommerce">PRODUCTOS</Link>
                     </li>
                     <li>
                         RANGO DE PRECIOS <br/>
@@ -43,11 +45,11 @@ export default function Sidebar(props) {
                     </li>
 
                     <li>
-                        <a href="/">NOSOTROS</a>
+                        <Link to="/about-us">NOSOTROS</Link>
                     </li>
                     
                     <li>
-                        <a href="/">CONTACTANOS</a>
+                        <Link to="/contact">CONTACTANOS</Link>
                     </li>
                 </ul>
             </nav>

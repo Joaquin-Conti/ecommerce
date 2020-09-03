@@ -11,8 +11,12 @@ function Navigation(props) {
     const categoriesArray = ['Hoodies','Pantalones','Remeras','Todos']
 
     //HIDES BODY SCROLLING ON WHEN SIDEBAR IS OPEN
-    props.sidebarIsOpen ? document.getElementsByTagName('body')[0].style.overflow = "hidden" : 
-    document.getElementsByTagName('body')[0].style.overflow = "scroll";
+    // props.sidebarIsOpen ? document.getElementsByTagName('body')[0].style.overflow = "hidden" : 
+    // document.getElementsByTagName('body')[0].style.overflow = "scroll";
+    
+    //HIDES BODY SCROLLING ON WHEN SIDEBAR IS OPEN
+    props.sidebarIsOpen ? document.getElementsByTagName('html')[0].style.overflow = "hidden" : 
+    document.getElementsByTagName('html')[0].style.overflow = "scroll";
 
     //CHANGES COLOR OF SELECTED CATEGORY
     function changeColor (e) {
@@ -58,7 +62,13 @@ function Navigation(props) {
             />
             <SearchButton 
                 sidebarIsOpen={props.sidebarIsOpen}
-                searchClicked={() => {props.onSidebarToggled(); props.onSearchClicked()}}
+                searchClicked={() => {props.onSidebarToggled(); props.searchClicked(); props.onSearchClicked()}}
+                desktop
+            />
+            <SearchButton 
+                sidebarIsOpen={props.sidebarIsOpen}
+                searchClicked={() => {props.onSidebarToggled(); props.searchClicked(); props.onSearchClicked()}}
+                mobile
             />
         </React.Fragment>
     )
