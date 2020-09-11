@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
 
 function ShopItem(props) {
-    console.log('[ShopItem] rendering...');
     // return props.category.includes(props.config.selectedCategory) &&
     // (props.talles.includes(` ${props.config.talle}`) || props.config.talle === 'todos') &&
     // (parseInt(props.price) >= props.config.minPrice &&

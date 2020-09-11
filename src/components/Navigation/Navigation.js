@@ -30,14 +30,14 @@ function Navigation(props) {
     }
 
     //SHOULD CLOSE SIDEBAR AND RENDER SEARCH RESULT ITEMS
-    useEffect(() => {
+    // useEffect(() => {
         // if(firstRender) {
         //     setFirstRender(false);
         // }
         // if(!firstRender) {
         //     props.onSidebarToggled();
         // }
-    }, [{...props.onSearchOptions}])
+    // }, [{...props.onSearchOptions}])
     
     return (
         <React.Fragment>
@@ -62,12 +62,12 @@ function Navigation(props) {
             />
             <SearchButton 
                 sidebarIsOpen={props.sidebarIsOpen}
-                searchClicked={() => {props.onSidebarToggled(); props.searchClicked(); props.onSearchClicked()}}
+                searchClicked={() => {props.onSidebarToggled();console.log('[Navigation] clicked'); props.searchClicked(); props.onSearchClicked()}}
                 desktop
             />
             <SearchButton 
                 sidebarIsOpen={props.sidebarIsOpen}
-                searchClicked={() => {props.onSidebarToggled(); props.searchClicked(); props.onSearchClicked()}}
+                searchClicked={() => {props.onSidebarToggled();console.log('[Navigation] clicked'); props.searchClicked(); props.onSearchClicked()}}
                 mobile
             />
         </React.Fragment>

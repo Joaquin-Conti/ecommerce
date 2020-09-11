@@ -1,5 +1,3 @@
-import allProducts from '../containers/products.json'
-
 const initialState = {
     resultsAvailable: true,
     /* WHEN USER IS SELECTING,

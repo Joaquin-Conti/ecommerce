@@ -3,7 +3,7 @@ import styles from './Navbar.module.css'
 import Logo from '../../Logo/Logo.js'
 import SearchBar from '../../../containers/SearchBar/SearchBar'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function Navbar(props) {
     return (
@@ -12,7 +12,7 @@ function Navbar(props) {
                 show={props.sidebarIsOpen ? styles.LogoHidden : ''}
             />
             <div className={`${styles.Cart} ${styles.MobileCart} ${props.sidebarIsOpen ? styles.NotVisible : ''}`}>
-                <Link to="/cart"><i className={`fas fa-shopping-cart fa-2x `}></i></Link>
+                <NavLink to="/cart"><i className={`fas fa-shopping-cart fa-2x `}></i></NavLink>
                 <span>{props.numberOfItems}</span>
             </div>
             
@@ -26,19 +26,19 @@ function Navbar(props) {
                 {/* <SearchBar /> */}
                 <ul className={styles.NavItems}>
                     <li>
-                        <Link to="/ecommerce">PRODUCTOS</Link>
+                        <NavLink to="/ecommerce">PRODUCTOS</NavLink>
                     </li>
                     <li>
-                        <Link to="/about-us">NOSOTROS</Link>
+                        <NavLink to="/about-us">NOSOTROS</NavLink>
                     </li>
                     <li>
-                        <Link to="/contact">CONTACTANOS</Link>
+                        <NavLink to="/contact">CONTACTANOS</NavLink>
                     </li>
                 </ul>
                 <div className={styles.Cart}>
-                    <Link to="/cart"><i className={`fas fa-shopping-cart fa-2x`}></i></Link>
+                    <NavLink to="/cart"><i className={`fas fa-shopping-cart fa-2x`}></i></NavLink>
                     <span>{props.numberOfItems}</span>
-                    <Link to="/cart">Ir al carrito</Link>
+                    <NavLink to="/cart">Ir al carrito</NavLink>
                 </div>
             </div>
         </nav>

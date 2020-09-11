@@ -7,12 +7,10 @@ import gotHoodie from '../../assets/images/got-hoodie.jpg'
 import hoodiePinkFloyd from '../../assets/images/hoodie-pink-floyd.jpg'
 import ShopItem from '../ShopItem/ShopItem'
 import styles from './ItemsWrapper.module.css'
-import allProducts from '../../containers/products.json'
+import allProducts from '../../containers/data'
 import { connect } from 'react-redux'
 
 function ItemsWrapper(props) {
-    console.log('[ItemsWrapper] rendering...');
-    const [itemsShown, setItemsShown] = useState(props.itemsShown)
     // const filterItem = (productToCheck) => {
     //     return (
     //         productToCheck.category.includes(props.config.selectedCategory) &&
@@ -34,7 +32,7 @@ function ItemsWrapper(props) {
     // }, [])
     return (
         <div className={styles.Grid}>
-            {itemsShown.map((productObj) => {
+            {props.itemsShown.map((productObj) => {
                  return <ShopItem
                      key={productObj.id}
                      id={productObj.id}

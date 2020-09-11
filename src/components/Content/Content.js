@@ -4,7 +4,6 @@ import ItemsWrapper from '../ItemsWrapper/ItemsWrapper'
 import { connect } from 'react-redux'
 
 function Content(props) {
-    console.log('[Content] rendering...');
     return (
         <section id="products">
             {props.resultsAvailable === false ? null : (props.showing === 'todos' ? <h1>TODOS LOS PRODUCTOS</h1> : 
