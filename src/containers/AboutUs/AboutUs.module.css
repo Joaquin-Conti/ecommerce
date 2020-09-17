@@ -2,17 +2,13 @@ main .Flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 200px;
+  width: 250px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-main .Flex h3 {
-  margin: 3px 0 2px;
 }
 
 .Redes {
@@ -36,15 +32,15 @@ main .Flex h3 {
   transition: color 200ms ease-in-out;
 }
 
-.Redes a:first-child:hover {
-  color: #cc33d1;
+.Redes .Instagram:hover, .Redes button:first-child {
+  color: #c240f5;
 }
 
-.Redes a:nth-child(2):hover {
+.Redes .Facebook:hover, .Redes button:nth-child(2) {
   color: #304099;
 }
 
-.Redes a:last-child:hover {
+.Redes .Whatsapp:hover, .Redes button:last-child {
   color: #36ad32;
 }
 

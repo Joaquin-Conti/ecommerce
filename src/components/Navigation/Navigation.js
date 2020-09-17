@@ -10,21 +10,11 @@ function Navigation(props) {
     // const [firstRender, setFirstRender] = useState(true);
     const categoriesArray = ['Hoodies','Pantalones','Remeras','Todos']
 
-    //HIDES BODY SCROLLING ON WHEN SIDEBAR IS OPEN
-    // props.sidebarIsOpen ? document.getElementsByTagName('body')[0].style.overflow = "hidden" : 
-    // document.getElementsByTagName('body')[0].style.overflow = "scroll";
-    
-    //HIDES BODY SCROLLING ON WHEN SIDEBAR IS OPEN
-    props.sidebarIsOpen ? document.getElementsByTagName('html')[0].style.overflow = "hidden" : 
-    document.getElementsByTagName('html')[0].style.overflow = "scroll";
-
     //CHANGES COLOR OF SELECTED CATEGORY
     function changeColor (e) {
-        const liArray = Array.from(e.target.parentNode.parentNode.childNodes);
+        const liArray = Array.from(document.querySelectorAll(".category-li"))
         liArray.map((li) => {
-            return Array.from(li.childNodes).map((sibling) => {
-                return sibling.style.color = "white";
-            })
+            return li.style.color = "white";
         })
         e.target.style.color = "#E51A23";
     }
@@ -50,6 +40,7 @@ function Navigation(props) {
                 btnClick={() => props.onSidebarToggled()}
             />
             <Sidebar 
+                sidebarToggled={() => props.onSidebarToggled()}
                 sidebarIsOpen={props.sidebarIsOpen}
                 arrowClicked={() => setCategoriesOpen(!categoriesOpen)}
                 showCategories={categoriesOpen}

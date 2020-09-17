@@ -1,0 +1,24 @@
+h1 {
+  margin-right: 30px;
+  display: inline-block;
+}
+
+i {
+  font-size: 30px;
+}
+
+.MailTo {
+  color: black;
+}
+
+a {
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+a:hover {
+  color: #f6b646;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+/*# sourceMappingURL=Contact.module.css.map */

@@ -1,0 +1,14 @@
+.LoginBtn {
+  line-height: 1.4;
+}
+
+.LoginBtn:hover {
+  color: #E51A23;
+}
+
+@media (min-width: 1100px) {
+  .Sidebar .LoginBtn {
+    display: none;
+  }
+}
+/*# sourceMappingURL=Welcome.module.css.map */

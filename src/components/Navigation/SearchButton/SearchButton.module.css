@@ -51,8 +51,8 @@
     display: none;
   }
   .Open.Desktop {
-    -webkit-transform: translateY(v);
-            transform: translateY(v);
+    -webkit-transform: translateY(-25px);
+            transform: translateY(-25px);
   }
   .Close.Desktop {
     -webkit-transform: translateY(-20vw);

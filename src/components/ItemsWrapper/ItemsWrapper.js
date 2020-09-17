@@ -1,51 +1,36 @@
-import React, { useState, useEffect } from 'react'
-import hoodieAzul from '../../assets/images/blue-hoodie-kotk.jpg'
-import jeanNegro from '../../assets/images/jean-negro.jpeg'
-import remeraGot1 from '../../assets/images/remera-got1.jpg'
-import remeraBrBa from '../../assets/images/remera-brba.jpg'
-import gotHoodie from '../../assets/images/got-hoodie.jpg'
-import hoodiePinkFloyd from '../../assets/images/hoodie-pink-floyd.jpg'
+import React from 'react'
+// import hoodieAzul from '../../assets/images/blue-hoodie-kotk.jpg'
+// import jeanNegro from '../../assets/images/jean-negro.jpeg'
+// import remeraGot1 from '../../assets/images/remera-got1.jpg'
+// import remeraBrBa from '../../public/assets/images/remera-brba.jpg'
+// import gotHoodie from '../../assets/images/got-hoodie.jpg'
+// import hoodiePinkFloyd from '../../../public/assets/images/'
 import ShopItem from '../ShopItem/ShopItem'
 import styles from './ItemsWrapper.module.css'
-import allProducts from '../../containers/data'
 import { connect } from 'react-redux'
+import Spinner from '../UI/Spinner/Spinner'
+
 
 function ItemsWrapper(props) {
-    // const filterItem = (productToCheck) => {
-    //     return (
-    //         productToCheck.category.includes(props.config.selectedCategory) &&
-    //         (productToCheck.talles.includes(` ${props.config.talle}`) || props.config.talle === 'todos') &&
-    //         (parseInt(productToCheck.price) >= props.config.minPrice &&
-    //         parseInt(productToCheck.price) <= props.config.maxPrice)
-    //     )
-    // }
     
-    // useEffect(() => {
-    //     allProducts.map(productObj => {
-    //         if (filterItem(productObj)) {
-    //             //ON FILTER
-    //             setFilteredItems((prevState) => {
-    //                 console.log(prevState)
-    //             })
-    //         }
-    //     })
-    // }, [])
     return (
         <div className={styles.Grid}>
-            {props.itemsShown.map((productObj) => {
+        {/* {console.log(props.itemsShown)} */}
+            {props.loading ? <Spinner /> :  props.itemsShown.map((productObj) => {
                  return <ShopItem
                      key={productObj.id}
                      id={productObj.id}
                      name={productObj.name}
                      category={productObj.category}
                      talles={productObj.talles}
-                    // showing={props.showing}
-                     image={productObj.image}
+                    //  showing={props.showing}
+                    //  image={require(productObj.image)}
                      alt={productObj.alt}
                      price={productObj.price}
-                     addedToCart={props.addedToCart}
+                     addedToCart={(e, itemId, itemPrice) => props.addedToCart(e, itemId, itemPrice)}
                  />
             })}
+            
             {/* <ShopItem
                 id='1'
                 name='Hoodie GoT'

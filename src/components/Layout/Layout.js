@@ -1,17 +1,80 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux';
+import { Route } from 'react-router';
+import axios from '../../axios'
 import './Layout.module.css'
 import Navigation from '../Navigation/Navigation'
 import Content from '../../components/Content/Content'
-import { connect } from 'react-redux';
-import { Route } from 'react-router';
 import AboutUs from '../../containers/AboutUs/AboutUs';
 import Contact from '../../containers/Contact/Contact';
 import Cart from '../../containers/Cart/Cart';
-import data from '../../containers/data'
+import Modal from '../UI/Modal/Modal';
+import LoginForm from '../UI/LoginForm/LoginForm';
+import productsData from '../../containers/data'
+import { Switch } from '@material-ui/core';
+import SignIn from '../../containers/SignIn/SignIn';
 
 function Layout(props) {
-    const initialState = data.products.map(productObj => productObj);
-    const [filteredItems, setFilteredItems] = useState(initialState);
+    const [products, setProducts] = useState([])
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
+
+    //HIDES BODY SCROLLING ON WHEN SIDEBAR OR MODAL IS SHOWN
+    props.isSidebarOpen || props.showingLogin ? document.getElementsByTagName('html')[0].style.overflow = "hidden" : 
+    document.getElementsByTagName('html')[0].style.overflow = "scroll";
+
+
+    useEffect(() => {
+        setLoading(true)
+        axios.get('/products.json')
+            .then(res => {
+                setLoading(false)
+                setProducts(dataToArray(res.data))
+            })
+            .catch(err => {
+                setLoading(false)
+                setError(err)
+            })
+    }, [])
+    
+    useEffect(() => {
+        searchClicked()
+    }, [products, props.config])
+
+    
+    // POSTING PRODUCTS TO FIREBASE DB (REPEATS PRODUCTS)
+    // useEffect(() => {
+    //     setLoading(true)
+    //     const productsArray = [];
+    //     productsData.products.map(product => {
+    //         axios.post('/products.json', product)
+    //             .then(res => {
+    //                 setLoading(false)
+    //                 setProducts(res.data)
+    //             })
+    //             .catch(err => {
+    //                 setLoading(false)
+    //                 setError(err)
+    //             })
+    //     })
+    // }, [])
+
+    const dataToArray = (data) => {
+        const keys = Object.keys(data);
+        return keys.map((key, index) => {
+            const k = keys[index]
+            const initials = data[k]
+            return keys[index] = initials
+        })
+    }
+
+    const addedToCart = (e, itemId, itemPrice) => {
+        props.isLoggedIn ? 
+        props.onAddedToCart(e, itemId, itemPrice) :
+        props.onShowingLogin()
+        // props.isLoggedIn ? props.onAddedToCart(e) : ;
+    }
 
     const filterItem = (productToCheck) => {
         return (
@@ -24,44 +87,66 @@ function Layout(props) {
     }
 
     const searchClicked = () => {
-        const newFilteredItems = [];
-        console.log('[searchClicked] Called');
-        data.products.map((productObj) => {
+        const newFilteredProducts = [];
+        // console.log(products)
+        products.map((productObj) => {
             if (filterItem(productObj)) {
-                newFilteredItems.push(productObj)
+                newFilteredProducts.push(productObj)
             };
         })
-        setFilteredItems(newFilteredItems)
+        console.log(newFilteredProducts)
+        setFilteredProducts(newFilteredProducts)
+        
     }
 
-    useEffect(() => {
-        console.log(filteredItems)
-    })
+    let modal = null
+    if (props.showingLogin) {
+        modal = <Modal>
+                    <LoginForm showText />
+                </Modal>
+    }
     
+
     return (
         <React.Fragment>
+            {modal}
             <Navigation
                 categorySelected={(e) => props.onCategorySelect(e.target.innerText.toLowerCase())}
                 showing={props.config.selectedCategory}
-                searchClicked={() => {searchClicked()}}
+                searchClicked={() => searchClicked()}
             />
-            <Route path="/about-us" exact component={AboutUs}/>
-            <Route path="/ecommerce" exact render={() =>
-                <Content
-                    showing={props.config.selectedCategory}
-                    isSidebarOpen={props.isSidebarOpen}
-                    addedToCart={(e) => props.onAddedToCart(e)}
-                    itemsShown={filteredItems}
-                />}
-            />
-            <Route path="/contact" exact component={Contact}/>
-            <Route path="/cart" exact component={Cart}/>
+            {/* <Switch> */}
+                <Route path="/about-us" exact component={AboutUs}/>
+                <Route path="/contact" exact component={Contact}/>
+                <Route path="/cart" exact component={Cart}/>
+                <Route path="/signin" exact component={SignIn}/>
+                <Route path="/ecommerce" exact render={() =>
+                    <Content
+                        loading={loading}
+                        showing={props.config.selectedCategory}
+                        isSidebarOpen={props.isSidebarOpen}
+                        // addedToCart={(e) => addedToCart(e)}
+                        itemsShown={filteredProducts}
+                    />}
+                />
+                <Route path="/" exact render={() =>
+                    <Content
+                        loading={loading}
+                        showing={props.config.selectedCategory}
+                        isSidebarOpen={props.isSidebarOpen}
+                        // addedToCart={(e) => addedToCart(e)}
+                        itemsShown={filteredProducts}
+                    />}
+                />
+            {/* </Switch> */}
         </React.Fragment>
     )
 }
 
 const mapStateToProps = state => {
     return {
+        isLoggedIn: state.isLoggedIn,
+        showingLogin: state.showingLogin,
         config: {...state.onSearchOptions},
         cart: {
             ...state.cart
@@ -72,8 +157,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        // onShowingLogin: () => dispatch({type: 'LOGIN_OPENED'}),
         onCategorySelect: (category) => dispatch({type: 'CATEGORY_SELECTED', payload: category}),
-        onAddedToCart: (e) => dispatch({type: 'PRODUCT_ADDED', payload: {quantity: 1}}),
+        onAddedToCart: (e, itemId, itemPrice) => {console.log(itemPrice); return dispatch({type: 'PRODUCT_ADDED', payload: {item: itemId, price: itemPrice, quantity: 1}})},
         onRemovedFromCart: () => dispatch({type: 'PRODUCT_REMOVED', payload: 1})
     };
 };

@@ -2,39 +2,50 @@ import React from 'react'
 import styles from './Sidebar.module.css'
 // import SearchBar from '../../../containers/SearchBar/SearchBar'
 import Logo from '../../Logo/Logo'
-import { Link } from 'react-router-dom'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { NavLink } from 'react-router-dom'
+import NavLinkItem from '../../UI/NavLinkItem/NavLinkItem';
+import ListItem from '../../UI/ListItem/ListItem';
+import { connect } from 'react-redux';
+import Welcome from '../../UI/Welcome/Welcome';
 
-export default function Sidebar(props) {
+function Sidebar(props) {
     
     return (
         <div className={styles.Sidebar + ' ' + (props.sidebarIsOpen ? styles.Open : styles.Close)}>
             {/* <div className={styles.NavFixed}> */}
-                <Logo />
+                <Logo className={styles.Logo}/>
+                {/* <NavLink to="/signin" className={styles.LoginBtn}>Welcome to KEO! <br/> Login/Signup</NavLink> */}
+                <Welcome className={styles.LoginBtn} />
                 {/* <SearchBar /> */}
             {/* </div> */}
             <nav>
                 <ul className={styles.NavItems}>
-                    <li>
-                        <Link to="/ecommerce">PRODUCTOS</Link>
-                    </li>
-                    <li>
+                    <ListItem>
                         RANGO DE PRECIOS <br/>
                         <span>de</span>
                         <input onChange={props.minPriceSelected} className={styles.RangeSearch} type='number'></input>
                         <br />
                         <span>hasta</span>
                         <input onChange={props.maxPriceSelected} className={styles.RangeSearch} type='number'></input>
-                    </li>
+                    </ListItem>
 
-                    <li >CATEGORIAS <i onClick={props.arrowClicked} className={"fas fa-chevron-down " + styles.Arrow + ' ' + (props.showCategories ? styles.ArrowOpen : styles.ArrowClose)}></i>
-                    {props.showCategories ? <ul className={styles.Categories}>
-                        {props.categories.map((category) => {
-                            return <li key={category+1} onClick={(e) => {props.changeColor(e); props.categorySelected(e)}}>{category}</li>
-                        })}
-                    </ul> : null}
-                    </li>
+                    <ListItem>
+                        <div className={styles.CategoriesFlex}>CATEGORIAS 
+                            <ExpandMoreIcon 
+                                onClick={props.arrowClicked}
+                                fontSize='large'
+                                className={`fas fa-chevron-down ${styles.Arrow} ${(props.showCategories ? styles.ArrowOpen : styles.ArrowClose)}`}/>
+                        </div>
+                        {props.showCategories ? 
+                        <ul className={styles.Categories}>
+                            {props.categories.map((category) => {
+                                return <li className="category-li" key={category+1} onClick={(e) => {props.changeColor(e); props.categorySelected(e)}}>{category}</li>
+                            })}
+                        </ul> : null}
+                    </ListItem>
 
-                    <li>
+                    <ListItem>
                         TALLES
                         <form className={styles.Talles} onChange={props.talleSelected}>
                             <label htmlFor="S">S<input name="talle" type="radio" value="S" /></label>
@@ -42,17 +53,27 @@ export default function Sidebar(props) {
                             <label htmlFor="L">L<input name="talle" type="radio" value="L" /></label>
                             <label htmlFor="XL">XL<input name="talle" type="radio" value="XL" /></label>
                         </form>
-                    </li>
-
-                    <li>
-                        <Link to="/about-us">NOSOTROS</Link>
-                    </li>
-                    
-                    <li>
-                        <Link to="/contact">CONTACTANOS</Link>
-                    </li>
+                    </ListItem>
+                    <NavLinkItem className={styles.NavLinkItem} to="/ecommerce" onClick={() => props.sidebarToggled()}>PRODUCTOS</NavLinkItem>
+                    <NavLinkItem className={styles.NavLinkItem} to="/about-us" onClick={() => props.sidebarToggled()}>NOSOTROS</NavLinkItem>
+                    <NavLinkItem className={styles.NavLinkItem} to="/contact" onClick={() => props.sidebarToggled()}>CONTACTANOS</NavLinkItem>
                 </ul>
             </nav>
         </div>
     )
 }
+
+
+const mapStateToProps = state => {
+    return {
+        state
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onLoginClicked: () => dispatch({type: 'LOGIN_CLICKED'})
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar)

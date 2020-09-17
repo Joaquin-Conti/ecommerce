@@ -10,8 +10,9 @@ function Content(props) {
             <h1>{props.showing.toUpperCase()}</h1>
             )}
             <ItemsWrapper 
+                loading={props.loading}
                 showing={props.showing}
-                addedToCart={(e) => props.addedToCart(e)}
+                addedToCart={(e, itemId, itemPrice) => props.addedToCart(e, itemId, itemPrice)}
                 itemsShown={props.itemsShown}
             />
         </section>

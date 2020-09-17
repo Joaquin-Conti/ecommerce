@@ -1,8 +1,7 @@
 .Navbar {
   color: white;
-  padding-right: 15px;
-  height: 150px;
-  width: 100%;
+  padding: 0 200px;
+  height: 125px;
   z-index: 2;
   background-color: black;
   overflow: hidden;
@@ -12,12 +11,83 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Navbar a {
+  text-align: center;
+  color: white;
+}
+
+.LeftGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 30%;
+  height: 100%;
+}
+
+.MiddleGroup {
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.MiddleGroup li {
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.MiddleGroup li a {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.MiddleGroup li a:hover {
+  color: #f6b646;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.MiddleGroup li a:active {
+  color: #f6b646;
+}
+
+.RightGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 40%;
 }
 
 .Cart {
-  height: 75px;
+  margin-right: 20px;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,39 +98,38 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.Cart button {
+  padding: 0;
 }
 
 .Cart a {
-  color: white;
   text-decoration: none;
+}
+
+.Cart a:hover {
+  color: white;
 }
 
 .Cart span {
   font-weight: 700;
-  margin: 10px 0;
+  font-size: 20px;
 }
 
 .MobileCart {
   display: none;
 }
 
-.Desktop, .NavItems {
+.Desktop {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.Desktop {
-  width: 100%;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-}
-
-.Desktop input {
-  width: 250px;
+  width: 70%;
+  height: 100%;
 }
 
 .MenuBtn {
@@ -113,41 +182,22 @@
           transform: translateY(16px);
 }
 
-.NavItems {
-  width: 600px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.NavItems li {
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.NavItems li a {
-  text-decoration: none;
-  color: white;
-  font-weight: 700;
-}
-
-.NavItems li a:hover {
-  color: #E51A23;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.NavItems li a:active {
-  color: #E51A23;
+.NotVisible {
+  opacity: 0;
 }
 
 @media (max-width: 1100px) {
+  .Navbar {
+    height: 130px;
+    padding: 10px 20px 10px 50px;
+  }
+  .LeftGroup {
+    height: 100%;
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
   /* ANIMATION */
   .MenuBtn.Open .MenuBtnBurger {
     -webkit-transform: translateX(-50px);

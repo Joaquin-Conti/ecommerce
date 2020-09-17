@@ -1,14 +1,9 @@
 main
     .Flex
         display: flex
-        width: 200px
+        width: 250px
         align-items: center
         justify-content: space-between
-        h3
-            margin: 3px 0 2px
-        
-        // .fa-instagra
-        //     display: block
 .Redes
     display: flex
     width: 200px
@@ -18,12 +13,12 @@ main
         transition: color 200ms ease-in-out
         &:hover
             transition: color 200ms ease-in-out
-        &:first-child:hover
-            color: #cc33d1
-        &:nth-child(2):hover
-            color: #304099
-        &:last-child:hover
-            color: #36ad32
+    .Instagram:hover, button:first-child
+        color: #c240f5
+    .Facebook:hover, button:nth-child(2)
+        color: #304099
+    .Whatsapp:hover, button:last-child
+        color: #36ad32
 p
     line-height: 2
 

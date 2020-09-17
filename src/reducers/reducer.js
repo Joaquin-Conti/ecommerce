@@ -1,9 +1,11 @@
 const initialState = {
+    isLoggedIn: true,
+    sidebarIsOpen: false,
+    showingLogin: false,
     resultsAvailable: true,
     /* WHEN USER IS SELECTING,
     THIS PROPERTY IS UPDATED */
     browseOptions: {
-        searchBarInput: '',
         selectedCategory: 'todos',
         minPrice: 699,
         maxPrice: 2199,
@@ -12,7 +14,6 @@ const initialState = {
     /* ON SEARCH BUTTON CLICK, COPIES ALL browseOptions
     PROPERTIES */
     onSearchOptions: {
-        searchBarInput: '',
         selectedCategory: 'todos',
         minPrice: 699,
         maxPrice: 2199,
@@ -22,8 +23,7 @@ const initialState = {
         numberOfItems: 0,
         totalPrice: 0,
         items: []
-    },
-    sidebarIsOpen: false,
+    }
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -35,6 +35,31 @@ const rootReducer = (state = initialState, action) => {
                 onSearchOptions : {
                     ...state.browseOptions
                 }
+            }
+        case 'LOGIN_OPENED':
+            return {
+                ...state,
+                showingLogin: true
+            }
+        case 'LOGIN_MODAL_CLOSED':
+            return {
+                ...state,
+                showingLogin: false
+            }
+        case 'LOGGED_IN':
+            return {
+                ...state,
+                isLoggedIn: true
+            }
+        case 'LOGGED_OUT':
+            return {
+                ...state,
+                cart: {
+                    totalPrice: 0,
+                    numberOfItems: 0,
+                    items: []
+                },
+                isLoggedIn: false
             }
         case 'SEARCHBAR_USED':
             return {
