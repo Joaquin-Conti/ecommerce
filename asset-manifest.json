@@ -1,23 +1,29 @@
 {
   "files": {
-    "main.css": "/ecommerce/static/css/main.f39d0c93.chunk.css",
-    "main.js": "/ecommerce/static/js/main.db4aaf5e.chunk.js",
-    "main.js.map": "/ecommerce/static/js/main.db4aaf5e.chunk.js.map",
+    "main.css": "/ecommerce/static/css/main.ac111382.chunk.css",
+    "main.js": "/ecommerce/static/js/main.79913cd3.chunk.js",
+    "main.js.map": "/ecommerce/static/js/main.79913cd3.chunk.js.map",
     "runtime-main.js": "/ecommerce/static/js/runtime-main.6c976267.js",
     "runtime-main.js.map": "/ecommerce/static/js/runtime-main.6c976267.js.map",
-    "static/js/2.2272d616.chunk.js": "/ecommerce/static/js/2.2272d616.chunk.js",
-    "static/js/2.2272d616.chunk.js.map": "/ecommerce/static/js/2.2272d616.chunk.js.map",
+    "static/js/2.8041dab9.chunk.js": "/ecommerce/static/js/2.8041dab9.chunk.js",
+    "static/js/2.8041dab9.chunk.js.map": "/ecommerce/static/js/2.8041dab9.chunk.js.map",
     "index.html": "/ecommerce/index.html",
-    "precache-manifest.8aa3b93329a3f9ab6fa2bf627c3bda6b.js": "/ecommerce/precache-manifest.8aa3b93329a3f9ab6fa2bf627c3bda6b.js",
+    "precache-manifest.f8c2fa2ce8b08af68a882f0f66c56d92.js": "/ecommerce/precache-manifest.f8c2fa2ce8b08af68a882f0f66c56d92.js",
     "service-worker.js": "/ecommerce/service-worker.js",
-    "static/css/main.f39d0c93.chunk.css.map": "/ecommerce/static/css/main.f39d0c93.chunk.css.map",
-    "static/js/2.2272d616.chunk.js.LICENSE.txt": "/ecommerce/static/js/2.2272d616.chunk.js.LICENSE.txt",
-    "static/media/keo-logo2.jpeg": "/ecommerce/static/media/keo-logo2.3580c0aa.jpeg"
+    "static/css/main.ac111382.chunk.css.map": "/ecommerce/static/css/main.ac111382.chunk.css.map",
+    "static/js/2.8041dab9.chunk.js.LICENSE.txt": "/ecommerce/static/js/2.8041dab9.chunk.js.LICENSE.txt",
+    "static/media/blue-hoodie-kotk.jpg": "/ecommerce/static/media/blue-hoodie-kotk.fa3c0e35.jpg",
+    "static/media/got-hoodie.jpg": "/ecommerce/static/media/got-hoodie.bf130acb.jpg",
+    "static/media/hoodie-pink-floyd.jpg": "/ecommerce/static/media/hoodie-pink-floyd.a17f6b83.jpg",
+    "static/media/jean-negro.jpeg": "/ecommerce/static/media/jean-negro.8252c003.jpeg",
+    "static/media/keo-logo2.jpeg": "/ecommerce/static/media/keo-logo2.3580c0aa.jpeg",
+    "static/media/remera-brba.jpg": "/ecommerce/static/media/remera-brba.282bb94c.jpg",
+    "static/media/remera-got1.jpg": "/ecommerce/static/media/remera-got1.fb78a3d6.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.6c976267.js",
-    "static/js/2.2272d616.chunk.js",
-    "static/css/main.f39d0c93.chunk.css",
-    "static/js/main.db4aaf5e.chunk.js"
+    "static/js/2.8041dab9.chunk.js",
+    "static/css/main.ac111382.chunk.css",
+    "static/js/main.79913cd3.chunk.js"
   ]
 }
