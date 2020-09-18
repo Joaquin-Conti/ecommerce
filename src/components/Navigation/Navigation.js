@@ -40,7 +40,7 @@ function Navigation(props) {
                 btnClick={() => props.onSidebarToggled()}
             />
             <Sidebar 
-                sidebarToggled={() => props.onSidebarToggled()}
+                sidebarToggled={() => {console.log("sidebar toggled f"); return props.onSidebarToggled()}}
                 sidebarIsOpen={props.sidebarIsOpen}
                 arrowClicked={() => setCategoriesOpen(!categoriesOpen)}
                 showCategories={categoriesOpen}
@@ -73,7 +73,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSidebarToggled: () => {window.scrollTo(0, 0); return dispatch({type: 'SIDEBAR_TOGGLED'})},
+        onSidebarToggled: () => {window.scrollTo(0, 0); console.log("sidebar toggled"); return dispatch({type: 'SIDEBAR_TOGGLED'})},
         onSearchClicked: () => dispatch({type: 'SEARCH_BUTTON_CLICKED'}),
         onCategorySelected: (e) => dispatch({type: 'CATEGORY_SELECTED', payload: e.target.innerHTML.toLowerCase()}),
         onTalleSelected: (e) => dispatch({type: 'TALLE_SELECTED', payload: e.target.value}),

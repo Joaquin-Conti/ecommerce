@@ -24,7 +24,7 @@ function ItemsWrapper(props) {
                      category={productObj.category}
                      talles={productObj.talles}
                     //  showing={props.showing}
-                    //  image={require(productObj.image)}
+                     image={productObj.image}
                      alt={productObj.alt}
                      price={productObj.price}
                      addedToCart={(e, itemId, itemPrice) => props.addedToCart(e, itemId, itemPrice)}

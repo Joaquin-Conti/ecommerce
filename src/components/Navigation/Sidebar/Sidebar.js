@@ -54,9 +54,9 @@ function Sidebar(props) {
                             <label htmlFor="XL">XL<input name="talle" type="radio" value="XL" /></label>
                         </form>
                     </ListItem>
-                    <NavLinkItem className={styles.NavLinkItem} to="/ecommerce" onClick={() => props.sidebarToggled()}>PRODUCTOS</NavLinkItem>
-                    <NavLinkItem className={styles.NavLinkItem} to="/about-us" onClick={() => props.sidebarToggled()}>NOSOTROS</NavLinkItem>
-                    <NavLinkItem className={styles.NavLinkItem} to="/contact" onClick={() => props.sidebarToggled()}>CONTACTANOS</NavLinkItem>
+                    <NavLinkItem className={styles.NavLinkItem} to="/ecommerce" onClick={() => console.log("clicked")}>PRODUCTOS</NavLinkItem>
+                    <NavLinkItem className={styles.NavLinkItem} to="/about-us" onClick={() => console.log("clicked")}>NOSOTROS</NavLinkItem>
+                    <NavLinkItem className={styles.NavLinkItem} to="/contact" onClick={() => console.log("clicked")}>CONTACTANOS</NavLinkItem>
                 </ul>
             </nav>
         </div>
@@ -72,6 +72,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        onSidebarToggled: () => {window.scrollTo(0, 0); console.log("sidebar toggled"); return dispatch({type: 'SIDEBAR_TOGGLED'})},
         onLoginClicked: () => dispatch({type: 'LOGIN_CLICKED'})
     };
 };

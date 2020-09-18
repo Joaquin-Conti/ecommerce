@@ -12,6 +12,7 @@ function Cart(props) {
                 <h1>Your cart</h1>
                 <div className={styles.Cart}>
                     <h3>Selected products</h3>
+                    {props.cart.items.map(item => console.log(item))}
                     <h3>Total: ${props.cart.totalPrice}</h3>
                 </div>
             </React.Fragment> : 

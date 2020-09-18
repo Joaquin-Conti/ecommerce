@@ -112,7 +112,11 @@ const rootReducer = (state = initialState, action) => {
                 cart: {
                     ...state.cart,
                     numberOfItems: state.cart.numberOfItems + action.payload.quantity,
-                    totalPrice: state.cart.totalPrice + action.payload.price
+                    totalPrice: state.cart.totalPrice + action.payload.price,
+                    items: [
+                        ...state.cart.items,
+                        action.payload.itemId
+                    ]
                     // items: state.cart.items.push(action.payload.item)
                 }
             }

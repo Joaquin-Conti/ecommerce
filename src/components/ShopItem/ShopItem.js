@@ -2,14 +2,19 @@ import React from 'react'
 import styles from './ShopItem.module.css'
 import { connect } from 'react-redux'
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import * as images from '../../containers/images'
 
 
 function ShopItem(props) {
-    // return props.category.includes(props.config.selectedCategory) &&
-    // (props.talles.includes(` ${props.config.talle}`) || props.config.talle === 'todos') &&
-    // (parseInt(props.price) >= props.config.minPrice &&
-    // parseInt(props.price) <= props.config.maxPrice)
-    // &&
+    let image;
+    console.log(props.id, typeof props.id)
+    if (props.id === "1") image = images.gotHoodie
+    if (props.id === "2") image = images.hoodieAzul
+    if (props.id === "3") image = images.jeanNegro
+    if (props.id === "4") image = images.remeraGot1
+    if (props.id === "6") image = images.remeraBrBa
+    if (props.id === "7") image = images.hoodiePinkFloyd
+
     const addedToCart = (e, itemId, itemPrice) => {
         props.isLoggedIn ? 
         props.onAddedToCart(e, itemId, itemPrice) :
@@ -19,7 +24,7 @@ function ShopItem(props) {
 
     return <div id={props.id} className={styles.ShopItem}>
                 <div className={styles.ImgDiv}>
-                    <img src={props.image} alt={props.alt} />
+                    <img src={image} alt={props.alt} />
                 </div>
                 <div>
                     <h3>{props.name}</h3>
