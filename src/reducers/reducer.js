@@ -1,8 +1,15 @@
 const initialState = {
-    isLoggedIn: false,
+    products: [],
+    productsFound: true,
+    isLoggedIn: true,
     sidebarIsOpen: false,
     showingLogin: false,
-    resultsAvailable: true,
+    // resultsAvailable: true,
+    cart: {
+        numberOfItems: 0,
+        totalPrice: 0,
+        items: []
+    },
     /* WHEN USER IS SELECTING,
     THIS PROPERTY IS UPDATED */
     browseOptions: {
@@ -18,14 +25,8 @@ const initialState = {
         minPrice: 699,
         maxPrice: 2199,
         talle: 'todos'
-    },
-    cart: {
-        numberOfItems: 0,
-        totalPrice: 0,
-        items: []
     }
 }
-
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SEARCH_BUTTON_CLICKED':
@@ -35,6 +36,21 @@ const rootReducer = (state = initialState, action) => {
                 onSearchOptions : {
                     ...state.browseOptions
                 }
+            }
+        case 'PRODUCTS_OBTAINED':
+            return {
+                ...state,
+                products: action.payload
+            }
+        case 'PRODUCTS_NOT_FOUND':
+            return {
+                ...state,
+                productsFound: false
+            }
+        case 'PRODUCTS_FOUND':
+            return {
+                ...state,
+                productsFound: true
             }
         case 'LOGIN_OPENED':
             return {
@@ -107,17 +123,26 @@ const rootReducer = (state = initialState, action) => {
                 resultsAvailable: !state.resultsAvailable
             }
         case 'PRODUCT_ADDED':
+            const foundItemIndex = state.cart.items.findIndex(item => item.id === action.payload.item.id)
+            let cartItems = []
+            if (foundItemIndex !== -1) {
+                state.cart.items[foundItemIndex].quantity++
+                cartItems = [
+                    ...state.cart.items,
+                ]
+            } else {
+                cartItems = [
+                    ...state.cart.items,
+                    action.payload.item
+                ]
+            }
             return {
                 ...state,
                 cart: {
                     ...state.cart,
-                    numberOfItems: state.cart.numberOfItems + action.payload.quantity,
+                    numberOfItems: state.cart.numberOfItems + action.payload.item.quantity,
                     totalPrice: state.cart.totalPrice + action.payload.price,
-                    items: [
-                        ...state.cart.items,
-                        action.payload.itemId
-                    ]
-                    // items: state.cart.items.push(action.payload.item)
+                    items: cartItems
                 }
             }
         case 'PRODUCT_REMOVED':

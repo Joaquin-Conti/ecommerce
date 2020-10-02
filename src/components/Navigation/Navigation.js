@@ -16,7 +16,7 @@ function Navigation(props) {
         liArray.map((li) => {
             return li.style.color = "white";
         })
-        e.target.style.color = "#E51A23";
+        e.target.style.color = "#f6b646";
     }
 
     //SHOULD CLOSE SIDEBAR AND RENDER SEARCH RESULT ITEMS

@@ -16,7 +16,7 @@ function Sidebar(props) {
             {/* <div className={styles.NavFixed}> */}
                 <Logo className={styles.Logo}/>
                 {/* <NavLink to="/signin" className={styles.LoginBtn}>Welcome to KEO! <br/> Login/Signup</NavLink> */}
-                <Welcome className={styles.LoginBtn} />
+                <Welcome className={`${styles.LoginBtn} ${styles.Mobile}`} />
                 {/* <SearchBar /> */}
             {/* </div> */}
             <nav>
@@ -45,7 +45,7 @@ function Sidebar(props) {
                         </ul> : null}
                     </ListItem>
 
-                    <ListItem>
+                    {/* <ListItem>
                         TALLES
                         <form className={styles.Talles} onChange={props.talleSelected}>
                             <label htmlFor="S">S<input name="talle" type="radio" value="S" /></label>
@@ -53,7 +53,7 @@ function Sidebar(props) {
                             <label htmlFor="L">L<input name="talle" type="radio" value="L" /></label>
                             <label htmlFor="XL">XL<input name="talle" type="radio" value="XL" /></label>
                         </form>
-                    </ListItem>
+                    </ListItem> */}
                     <NavLinkItem className={styles.NavLinkItem} to="/ecommerce" onClick={() => console.log("clicked")}>PRODUCTOS</NavLinkItem>
                     <NavLinkItem className={styles.NavLinkItem} to="/about-us" onClick={() => console.log("clicked")}>NOSOTROS</NavLinkItem>
                     <NavLinkItem className={styles.NavLinkItem} to="/contact" onClick={() => console.log("clicked")}>CONTACTANOS</NavLinkItem>

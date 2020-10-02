@@ -11,6 +11,15 @@
   .Grid {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
+    justify-items: start;
+  }
+  .Grid > div:nth-child(3n - 1) {
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  .Grid > div:nth-child(3n) {
+    -ms-grid-column-align: end;
+        justify-self: end;
   }
 }
 

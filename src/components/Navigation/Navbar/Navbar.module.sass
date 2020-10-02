@@ -6,7 +6,7 @@ $orange: #f6b646
   // top: 0
   // left: 0
   color: white
-  padding: 0 200px
+  padding: 0 15%
   height: 125px
   z-index: 2
   background-color: black
@@ -62,13 +62,14 @@ $orange: #f6b646
     // font-weight: 500
   button
     padding: 0
+    &:hover
+      color: $orange
   a
     text-decoration: none
-    &:hover
-      color: white
   span
     font-weight: 700
     font-size: 20px
+    color: $orange
   
 .MobileCart
   display: none
@@ -124,7 +125,7 @@ $orange: #f6b646
 @media (max-width: 1100px)
   .Navbar
     height: 130px
-    padding: 10px 20px 10px 50px
+    // padding: 10px 15px
 
   .LeftGroup
     height: 100%

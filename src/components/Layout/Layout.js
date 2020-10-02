@@ -31,6 +31,7 @@ function Layout(props) {
             .then(res => {
                 setLoading(false)
                 setProducts(dataToArray(res.data))
+                props.onSetProducts(dataToArray(res.data))
             })
             .catch(err => {
                 setLoading(false)
@@ -69,13 +70,6 @@ function Layout(props) {
         })
     }
 
-    const addedToCart = (e, itemId, itemPrice) => {
-        props.isLoggedIn ? 
-        props.onAddedToCart(e, itemId, itemPrice) :
-        props.onShowingLogin()
-        // props.isLoggedIn ? props.onAddedToCart(e) : ;
-    }
-
     const filterItem = (productToCheck) => {
         return (
             productToCheck.category.includes(props.config.selectedCategory) &&
@@ -88,15 +82,19 @@ function Layout(props) {
 
     const searchClicked = () => {
         const newFilteredProducts = [];
-        // console.log(products)
+        let productMatch = false;
         products.map((productObj) => {
             if (filterItem(productObj)) {
+                productMatch = true;
                 newFilteredProducts.push(productObj)
             };
         })
-        console.log(newFilteredProducts)
         setFilteredProducts(newFilteredProducts)
-        
+        // if (productMatch) {
+        //     props.onProductsFound()
+        // } else {
+        //     props.onNoProductsFound()
+        // }
     }
 
     let modal = null
@@ -157,7 +155,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        // onShowingLogin: () => dispatch({type: 'LOGIN_OPENED'}),
+        onNoProductsFound: () => dispatch({type: 'PRODUCTS_NOT_FOUND'}),
+        onProductsFound: () => dispatch({type: 'PRODUCTS_FOUND'}),
+        onSetProducts: (products) => dispatch({type: 'PRODUCTS_OBTAINED', payload: products}),
         onCategorySelect: (category) => dispatch({type: 'CATEGORY_SELECTED', payload: category}),
         onAddedToCart: (e, itemId, itemPrice) => {console.log(itemPrice); return dispatch({type: 'PRODUCT_ADDED', payload: {item: itemId, price: itemPrice, quantity: 1}})},
         onRemovedFromCart: () => dispatch({type: 'PRODUCT_REMOVED', payload: 1})
