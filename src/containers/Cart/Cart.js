@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styles from './Cart.module.css'
 import { connect } from 'react-redux'
 import LoginForm from '../../components/UI/LoginForm/LoginForm'
@@ -18,18 +18,21 @@ function Cart(props) {
                         {/* <h3>Selected products</h3> */}
                         <h3>Total: ${props.cart.totalPrice}</h3>
                         <div className={styles.Grid}>
-                                {props.cart.items.forEach(item => {
+                                {props.cart.items.map(item => {
                                     return props.products.map(product => {
                                         if (item.id === product.id) {
-                                            let id = product.id
-                                            let name = product.name
-                                            let alt = product.alt
-                                            return <CartItem 
-                                                key={item.id} 
-                                                id={item.id} 
-                                                name={name}
+                                            let checkQuantity
+                                            
+                                            item.quantity < 1 ? checkQuantity = null :
+                                            checkQuantity = <CartItem 
+                                                key={product.id} 
+                                                id={product.id} 
+                                                price={product.price}
+                                                name={product.name}
                                                 quantity={item.quantity}
                                                 />
+
+                                            return checkQuantity
                                         }
                                     })
                                     

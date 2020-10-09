@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './Navbar.module.css'
 import Logo from '../../Logo/Logo.js'
-import SearchBar from '../../../containers/SearchBar/SearchBar'
+// import SearchBar from '../../../containers/SearchBar/SearchBar'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { IconButton } from '@material-ui/core';
+// import { IconButton } from '@material-ui/core';
 import NavLinkItem from '../../UI/NavLinkItem/NavLinkItem';
 import Welcome from '../../UI/Welcome/Welcome';
 
@@ -45,11 +45,9 @@ function Navbar(props) {
                 </ul>
                 <div className={styles.RightGroup}>
                     <div className={styles.Cart}>
-                        <IconButton><NavLink to="/cart"><ShoppingCartIcon fontSize='large' /> </NavLink></IconButton>
+                        <NavLink to="/cart"><ShoppingCartIcon fontSize='large' /> </NavLink>
                         <span>{props.numberOfItems}</span>
-                        {/* <NavLink to="/cart">Ir al carrito</NavLink> */}
                     </div>
-                    {/* <NavLink to="/signin" className={styles.LoginBtn}>Welcome to KEO! <br/> Login/Signup</NavLink> */}
                     <Welcome />
                 </div>
             </div>

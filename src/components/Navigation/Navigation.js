@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Navbar from './Navbar/Navbar'
 import Sidebar from './Sidebar/Sidebar'
 import Backdrop from '../UI/Backdrop/Backdrop';
@@ -8,7 +8,7 @@ import SearchButton from './SearchButton/SearchButton';
 function Navigation(props) {
     const [categoriesOpen, setCategoriesOpen] = useState(false);
     // const [firstRender, setFirstRender] = useState(true);
-    const categoriesArray = ['Hoodies','Pantalones','Remeras','Todos']
+    const categoriesArray = ['Hoodies','Pants','Shirts','All']
 
     //CHANGES COLOR OF SELECTED CATEGORY
     function changeColor (e) {
@@ -40,7 +40,7 @@ function Navigation(props) {
                 btnClick={() => props.onSidebarToggled()}
             />
             <Sidebar 
-                sidebarToggled={() => {console.log("sidebar toggled f"); return props.onSidebarToggled()}}
+                sidebarToggled={() => props.onSidebarToggled()}
                 sidebarIsOpen={props.sidebarIsOpen}
                 arrowClicked={() => setCategoriesOpen(!categoriesOpen)}
                 showCategories={categoriesOpen}
@@ -53,12 +53,12 @@ function Navigation(props) {
             />
             <SearchButton 
                 sidebarIsOpen={props.sidebarIsOpen}
-                searchClicked={() => {props.onSidebarToggled();console.log('[Navigation] clicked'); props.searchClicked(); props.onSearchClicked()}}
+                searchClicked={() => {props.onSidebarToggled(); props.searchClicked(); props.onSearchClicked()}}
                 desktop
             />
             <SearchButton 
                 sidebarIsOpen={props.sidebarIsOpen}
-                searchClicked={() => {props.onSidebarToggled();console.log('[Navigation] clicked'); props.searchClicked(); props.onSearchClicked()}}
+                searchClicked={() => {props.onSidebarToggled(); props.searchClicked(); props.onSearchClicked()}}
                 mobile
             />
         </React.Fragment>
@@ -73,7 +73,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSidebarToggled: () => {window.scrollTo(0, 0); console.log("sidebar toggled"); return dispatch({type: 'SIDEBAR_TOGGLED'})},
+        onSidebarToggled: () => {window.scrollTo(0, 0); return dispatch({type: 'SIDEBAR_TOGGLED'})},
         onSearchClicked: () => dispatch({type: 'SEARCH_BUTTON_CLICKED'}),
         onCategorySelected: (e) => dispatch({type: 'CATEGORY_SELECTED', payload: e.target.innerHTML.toLowerCase()}),
         onTalleSelected: (e) => dispatch({type: 'TALLE_SELECTED', payload: e.target.value}),

@@ -7,6 +7,9 @@
 }
 
 @media (min-width: 1100px) {
+  .Mobile {
+    display: none;
+  }
   .Sidebar .LoginBtn {
     display: none;
   }

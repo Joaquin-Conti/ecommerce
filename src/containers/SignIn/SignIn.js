@@ -8,7 +8,7 @@ import LoginForm from '../../components/UI/LoginForm/LoginForm'
 function SignIn(props) {
     return (
         <section>
-            <LoginForm showText/>
+            <LoginForm isRoute showText/>
         </section>
     )
 }

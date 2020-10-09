@@ -5,18 +5,20 @@ import styles from './Welcome.module.css'
 
 function Welcome(props) {
     return (
-        <NavLink to="/signin" className={styles.LoginBtn}>Welcome to KEO! <br/> {props.isLoggedIn ? 'Have a nice shopping!' : 'Login/Signup'}</NavLink>
+        <NavLink onClick={() => props.sidebarIsOpen ? props.onSidebarToggled() : null} to="/signin" className={`${styles.LoginBtn} ${props.sidebar ? styles.Mobile : ''}`}>Welcome to KEO! <br/> {props.isLoggedIn ? 'Have a nice shopping!' : 'Login/Signup'}</NavLink>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        isLoggedIn: state.isLoggedIn
+        isLoggedIn: state.isLoggedIn,
+        sidebarIsOpen: state.sidebarIsOpen
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
+        onSidebarToggled: () => dispatch({type: 'SIDEBAR_TOGGLED'}),
         onLoginClicked: () => dispatch({type: 'LOGIN_CLICKED'})
     };
 };

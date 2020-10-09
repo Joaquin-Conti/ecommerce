@@ -10,13 +10,15 @@ import Contact from '../../containers/Contact/Contact';
 import Cart from '../../containers/Cart/Cart';
 import Modal from '../UI/Modal/Modal';
 import LoginForm from '../UI/LoginForm/LoginForm';
-import productsData from '../../containers/data'
-import { Switch } from '@material-ui/core';
+// import productsData from '../../containers/data'
+// import { Switch } from '@material-ui/core';
 import SignIn from '../../containers/SignIn/SignIn';
+import Footer from '../../containers/Footer/Footer';
 
 function Layout(props) {
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([]);
+    // const [productMatch, setProductMatch] = useState(true);
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
@@ -39,8 +41,17 @@ function Layout(props) {
             })
     }, [])
     
+    // useEffect(() => {
+    //     if (!productMatch && !loading) { 
+    //         props.onNoProductsFound() 
+    //     } else {
+    //         props.onProductsFound()
+    //     }
+    // }, [productMatch])
+
     useEffect(() => {
         searchClicked()
+        
     }, [products, props.config])
 
     
@@ -74,7 +85,7 @@ function Layout(props) {
         return (
             productToCheck.category.includes(props.config.selectedCategory) &&
             (productToCheck.talles.includes(` ${props.config.talle}` || `${props.config.talle} `) ||
-            props.config.talle === 'todos') &&
+            props.config.talle === 'all') &&
             (productToCheck.price >= props.config.minPrice &&
             productToCheck.price <= props.config.maxPrice)
         )
@@ -82,10 +93,9 @@ function Layout(props) {
 
     const searchClicked = () => {
         const newFilteredProducts = [];
-        let productMatch = false;
         products.map((productObj) => {
             if (filterItem(productObj)) {
-                productMatch = true;
+                // setProductMatch(true)
                 newFilteredProducts.push(productObj)
             };
         })
@@ -136,6 +146,7 @@ function Layout(props) {
                         itemsShown={filteredProducts}
                     />}
                 />
+                <Footer />
             {/* </Switch> */}
         </React.Fragment>
     )
@@ -158,9 +169,7 @@ const mapDispatchToProps = dispatch => {
         onNoProductsFound: () => dispatch({type: 'PRODUCTS_NOT_FOUND'}),
         onProductsFound: () => dispatch({type: 'PRODUCTS_FOUND'}),
         onSetProducts: (products) => dispatch({type: 'PRODUCTS_OBTAINED', payload: products}),
-        onCategorySelect: (category) => dispatch({type: 'CATEGORY_SELECTED', payload: category}),
-        onAddedToCart: (e, itemId, itemPrice) => {console.log(itemPrice); return dispatch({type: 'PRODUCT_ADDED', payload: {item: itemId, price: itemPrice, quantity: 1}})},
-        onRemovedFromCart: () => dispatch({type: 'PRODUCT_REMOVED', payload: 1})
+        onCategorySelect: (category) => dispatch({type: 'CATEGORY_SELECTED', payload: category})
     };
 };
 

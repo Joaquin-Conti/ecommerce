@@ -3,7 +3,7 @@ import styles from './Sidebar.module.css'
 // import SearchBar from '../../../containers/SearchBar/SearchBar'
 import Logo from '../../Logo/Logo'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 import NavLinkItem from '../../UI/NavLinkItem/NavLinkItem';
 import ListItem from '../../UI/ListItem/ListItem';
 import { connect } from 'react-redux';
@@ -16,22 +16,22 @@ function Sidebar(props) {
             {/* <div className={styles.NavFixed}> */}
                 <Logo className={styles.Logo}/>
                 {/* <NavLink to="/signin" className={styles.LoginBtn}>Welcome to KEO! <br/> Login/Signup</NavLink> */}
-                <Welcome className={`${styles.LoginBtn} ${styles.Mobile}`} />
+                <Welcome sidebar/>
                 {/* <SearchBar /> */}
             {/* </div> */}
-            <nav>
+            <nav className={styles.NavTag}>
                 <ul className={styles.NavItems}>
                     <ListItem>
-                        RANGO DE PRECIOS <br/>
-                        <span>de</span>
+                        PRICE RANGE<br/>
+                        <span>from</span>
                         <input onChange={props.minPriceSelected} className={styles.RangeSearch} type='number'></input>
                         <br />
-                        <span>hasta</span>
+                        <span>to</span>
                         <input onChange={props.maxPriceSelected} className={styles.RangeSearch} type='number'></input>
                     </ListItem>
 
                     <ListItem>
-                        <div className={styles.CategoriesFlex}>CATEGORIAS 
+                        <div className={styles.CategoriesFlex}>CATEGORIES 
                             <ExpandMoreIcon 
                                 onClick={props.arrowClicked}
                                 fontSize='large'
@@ -54,9 +54,9 @@ function Sidebar(props) {
                             <label htmlFor="XL">XL<input name="talle" type="radio" value="XL" /></label>
                         </form>
                     </ListItem> */}
-                    <NavLinkItem className={styles.NavLinkItem} to="/ecommerce" onClick={() => console.log("clicked")}>PRODUCTOS</NavLinkItem>
-                    <NavLinkItem className={styles.NavLinkItem} to="/about-us" onClick={() => console.log("clicked")}>NOSOTROS</NavLinkItem>
-                    <NavLinkItem className={styles.NavLinkItem} to="/contact" onClick={() => console.log("clicked")}>CONTACTANOS</NavLinkItem>
+                    <NavLinkItem className={styles.NavLinkItem} to="/ecommerce">PRODUCTS</NavLinkItem>
+                    <NavLinkItem className={styles.NavLinkItem} to="/about-us">ABOUT US</NavLinkItem>
+                    <NavLinkItem className={styles.NavLinkItem} to="/contact">CONTACT US</NavLinkItem>
                 </ul>
             </nav>
         </div>

@@ -147,6 +147,8 @@
   width: 80px;
   height: 80px;
   cursor: pointer;
+  -webkit-transition: background 0ms ease-in-out;
+  transition: background 0ms ease-in-out;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
   /* border: 3px solid #fff */
@@ -157,6 +159,8 @@
   height: 6px;
   background: #fff;
   border-radius: 5px;
+  -webkit-transition: background 0ms ease-in-out;
+  transition: background 0ms ease-in-out;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
@@ -169,6 +173,8 @@
   height: 6px;
   background: #fff;
   border-radius: 5px;
+  -webkit-transition: background 0ms ease-in-out;
+  transition: background 0ms ease-in-out;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
@@ -183,6 +189,14 @@
           transform: translateY(16px);
 }
 
+.MenuBtn.Open .MenuBtnBurger,
+.MenuBtn.Open .MenuBtnBurger::before,
+.MenuBtn.Open .MenuBtnBurger::after {
+  background: transparent;
+  -webkit-transition: background 0ms ease-in-out;
+  transition: background 0ms ease-in-out;
+}
+
 .NotVisible {
   opacity: 0;
 }
@@ -190,6 +204,7 @@
 @media (max-width: 1100px) {
   .Navbar {
     height: 130px;
+    padding-right: 6%;
   }
   .LeftGroup {
     height: 100%;
@@ -197,6 +212,19 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+  }
+  .MenuBtn .MenuBtnBurger::before,
+  .MenuBtn .MenuBtnBurger::after,
+  .MenuBtn .MenuBtnBurger {
+    background: #fff;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .MenuBtn.Open .MenuBtnBurger::before,
+  .MenuBtn.Open .MenuBtnBurger::after,
+  .MenuBtn.Open .MenuBtnBurger {
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
   }
   /* ANIMATION */
   .MenuBtn.Open .MenuBtnBurger {
@@ -207,10 +235,12 @@
             box-shadow: none;
   }
   .MenuBtn.Open .MenuBtnBurger::before {
+    background: #fff;
     -webkit-transform: rotate(45deg) translate(35px, -35px);
             transform: rotate(45deg) translate(35px, -35px);
   }
   .MenuBtn.Open .MenuBtnBurger::after {
+    background: #fff;
     -webkit-transform: rotate(-45deg) translate(35px, 35px);
             transform: rotate(-45deg) translate(35px, 35px);
   }
@@ -218,7 +248,6 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    opacity: 1;
   }
   .NotVisible {
     opacity: 0;

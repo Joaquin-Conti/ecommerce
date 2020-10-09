@@ -6,10 +6,8 @@ import { Button } from '@material-ui/core';
 
 function CartItem(props) {
     let image;
-    
-    let name
     let alt
-    let id
+
     if (props.id === "1") image = images.gotHoodie
     if (props.id === "2") image = images.hoodieAzul
     if (props.id === "3") image = images.jeanNegro
@@ -20,15 +18,17 @@ function CartItem(props) {
     return (
         <div id={props.id} className={styles.CartItem}>
             <div className={styles.ImgDiv}>
-                <img src={props.image} alt={alt} />
+                <img className={styles.ImgTag} src={image} alt={alt} />
             </div>
-            <div>
-                <h3>{props.name}</h3>
-                <h3>x{props.quantity}</h3>
+            <div className={styles.BottomDiv}>
+                <h3 className={styles.Name}>{props.name}</h3>
+                <h3 className={styles.Quantity}>x{props.quantity}</h3>
                 {/* <p className={styles.Text}>{props.talles}</p> */}
                 <Button 
                 variant="outlined"
-                size="small">Remove</Button>
+                size="small"
+                onClick={() => props.onRemovedFromCart(props.id, props.price)}
+                >Remove</Button>
             </div>
         </div>
     )
@@ -43,6 +43,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        onRemovedFromCart: (itemId, itemPrice) => dispatch({type: 'PRODUCT_REMOVED', payload: {item: {id: itemId, quantity: 1}, price: itemPrice}})
     };
 };
 

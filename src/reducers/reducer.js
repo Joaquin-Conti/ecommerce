@@ -1,7 +1,7 @@
 const initialState = {
     products: [],
     productsFound: true,
-    isLoggedIn: true,
+    isLoggedIn: false,
     sidebarIsOpen: false,
     showingLogin: false,
     // resultsAvailable: true,
@@ -13,18 +13,18 @@ const initialState = {
     /* WHEN USER IS SELECTING,
     THIS PROPERTY IS UPDATED */
     browseOptions: {
-        selectedCategory: 'todos',
+        selectedCategory: 'all',
         minPrice: 699,
         maxPrice: 2199,
-        talle: 'todos'
+        talle: 'all'
     },
     /* ON SEARCH BUTTON CLICK, COPIES ALL browseOptions
     PROPERTIES */
     onSearchOptions: {
-        selectedCategory: 'todos',
+        selectedCategory: 'all',
         minPrice: 699,
         maxPrice: 2199,
-        talle: 'todos'
+        talle: 'all'
     }
 }
 const rootReducer = (state = initialState, action) => {
@@ -146,12 +146,18 @@ const rootReducer = (state = initialState, action) => {
                 }
             }
         case 'PRODUCT_REMOVED':
+            const foundItemIndexBis = state.cart.items.findIndex(item => item.id === action.payload.item.id)
+            state.cart.items[foundItemIndexBis].quantity--
+            if (state.cart.items[foundItemIndexBis].quantity === 0) { state.cart.items.splice(foundItemIndexBis, 1) }
             return {
                 ...state,
                 cart: {
                     ...state.cart,
-                    numberOfItems: state.cart.numberOfItems - action.payload.quantity,
-                    totalPrice: state.cart.totalPrice - action.payload.price
+                    numberOfItems: state.cart.numberOfItems - action.payload.item.quantity,
+                    totalPrice: state.cart.totalPrice - action.payload.price,
+                    items: [
+                        ...state.cart.items
+                    ]
                 }
             }
         case 'SIDEBAR_TOGGLED':

@@ -1,5 +1,5 @@
 .Cart {
-  padding: 5%;
+  padding: 10%;
   margin: 0 auto;
   height: auto;
   background-color: #dfdddd;
@@ -17,6 +17,9 @@
 }
 
 @media (min-width: 870px) {
+  .Cart {
+    padding: 5%;
+  }
   .Grid {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
@@ -26,8 +29,8 @@
 
 @media (min-width: 1100px) {
   .Grid {
-    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     -ms-grid-rows: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
   }

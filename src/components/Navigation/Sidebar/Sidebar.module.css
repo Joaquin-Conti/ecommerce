@@ -1,7 +1,8 @@
 .Sidebar {
   background-color: black;
-  width: 280px;
   position: fixed;
+  overflow-x: hidden;
+  overflow-y: scroll;
   width: 70%;
   height: 100%;
   left: 0;
@@ -26,12 +27,11 @@ input {
   outline-width: 0;
 }
 
-nav {
-  height: 100vh;
-  overflow: hidden;
+.NavTag {
+  height: 100%;
 }
 
-nav .Arrow {
+.NavTag .Arrow {
   color: #E51A23;
   -webkit-transition: -webkit-transform 300ms ease-out;
   transition: -webkit-transform 300ms ease-out;
@@ -40,12 +40,12 @@ nav .Arrow {
   cursor: pointer;
 }
 
-nav .ArrowClose {
+.NavTag .ArrowClose {
   -webkit-transform: rotateZ(0%);
           transform: rotateZ(0%);
 }
 
-nav .ArrowOpen {
+.NavTag .ArrowOpen {
   -webkit-transform: rotateZ(90deg);
           transform: rotateZ(90deg);
 }
@@ -125,8 +125,10 @@ nav .ArrowOpen {
 @media (min-width: 1100px) {
   .Sidebar {
     width: 15vw;
-    overflow-y: scroll;
     overflow-x: hidden;
+  }
+  .Sidebar .NavTag {
+    height: 80%;
   }
   .Sidebar .NavItems {
     -ms-flex-pack: distribute;

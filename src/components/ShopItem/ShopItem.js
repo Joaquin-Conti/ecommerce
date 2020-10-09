@@ -25,13 +25,11 @@ function ShopItem(props) {
         } else {
             props.onShowingLogin()
         }
-        // props.isLoggedIn ? props.onAddedToCart(e) : ;
     }
 
     const checkProductsQty = () => {
         props.cart.items.forEach(item => {
             if (item === props.id) {
-                let qty = quantity;
                 setQuantity(prevState => prevState + 1)
             }
         })

@@ -6,7 +6,7 @@
   width: 30%;
   height: 6%;
   right: 0;
-  top: 150px;
+  top: 125px;
   font-weight: 500;
   z-index: 1;
   color: white;
@@ -20,6 +20,10 @@
 }
 
 .SearchButton:active {
+  opacity: .8;
+}
+
+.SearchButton:hover {
   opacity: .8;
 }
 

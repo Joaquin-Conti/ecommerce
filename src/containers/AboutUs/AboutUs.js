@@ -3,7 +3,7 @@ import styles from './AboutUs.module.css'
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { IconButton } from '@material-ui/core';
 
 export default function AboutUs() {

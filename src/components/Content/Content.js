@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 function Content(props) {
     return (
         <section id="products">
-            {props.resultsAvailable === false ? null : (props.productsFound ? (props.showing === 'todos' ? <h1>TODOS LOS PRODUCTOS</h1> : 
+            {props.resultsAvailable === false ? null : (props.productsFound ? (props.showing === 'all' ? <h1>ALL PRODUCTS</h1> : 
             <h1>{props.showing.toUpperCase()}</h1>) : <h1>No products match that search.</h1> )
             }
             <ItemsWrapper 

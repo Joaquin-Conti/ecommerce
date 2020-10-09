@@ -6,20 +6,20 @@ import Logo from '../../Logo/Logo'
 import { connect } from 'react-redux'
 
 function LoginForm(props) {
-    const handleGoogleAuth = async () => {
+    const handleGoogleAuth = () => {
         props.isLoggedIn ? props.onHandleLogout() : props.onHandleLogin()
-        await axios.get("http://localhost:5000/api/auth/google")
+        // await axios.get("http://localhost:5000/api/auth/google")
     }
 
-    const handleAuth = async () => {
-        await axios.get("http://localhost:5000/auth/google")
-    }
+    // const handleAuth = async () => {
+    //     await axios.get("http://localhost:5000/auth/google")
+    // }
     
     return (
-        <div className={styles.LoginForm}>
+        <div className={`${styles.LoginForm} ${props.isRoute ? styles.SignInRoute : ''}`}>
             {props.showText ? props.isLoggedIn ? <h2>You are logged in. <br />Have a nice shopping!</h2> : <h2>Sign up or login to get extra functionality!</h2> : null}
             <div className={styles.LogoDiv}>
-                <Logo />
+                <Logo modal/>
             </div>
             {/* <label htmlFor="email">Email:</label>
             <input name="email" type="email"></input>
@@ -36,7 +36,7 @@ function LoginForm(props) {
             <Button
                 onClick={() => handleGoogleAuth()}
                 variant="outlined"
-                size="large"
+                size="medium"
                 color="default">
                     {props.isLoggedIn ? 'Log Out' : 'Sign in'}
             </Button>

@@ -3,8 +3,9 @@ $orange: #f6b646
 
 .Sidebar
     background-color: black
-    width: 280px
     position: fixed
+    overflow-x: hidden
+    overflow-y: scroll
     width: 70%
     height: 100%
     left: 0
@@ -20,9 +21,8 @@ input
     height: 30px
     width: 80%
     outline-width: 0
-nav
-    height: 100vh
-    overflow: hidden
+.NavTag
+    height: 100%
     .Arrow
         color: $keoRed
         transition: transform 300ms ease-out
@@ -73,9 +73,9 @@ nav
 @media (min-width: 1100px)
     .Sidebar
         width: 15vw
-        overflow-y: scroll
         overflow-x: hidden
-        // display: none
+        .NavTag
+            height: 80%
         .NavItems
             justify-content: space-around
             li
