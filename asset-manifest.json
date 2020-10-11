@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ecommerce/static/css/main.c0dad936.chunk.css",
+    "main.css": "/ecommerce/static/css/main.d2679203.chunk.css",
     "main.js": "/ecommerce/static/js/main.d277f493.chunk.js",
     "main.js.map": "/ecommerce/static/js/main.d277f493.chunk.js.map",
     "runtime-main.js": "/ecommerce/static/js/runtime-main.6c976267.js",
@@ -8,9 +8,9 @@
     "static/js/2.b2015b9d.chunk.js": "/ecommerce/static/js/2.b2015b9d.chunk.js",
     "static/js/2.b2015b9d.chunk.js.map": "/ecommerce/static/js/2.b2015b9d.chunk.js.map",
     "index.html": "/ecommerce/index.html",
-    "precache-manifest.38f60a65ab4cb90a4586257e4f968c8b.js": "/ecommerce/precache-manifest.38f60a65ab4cb90a4586257e4f968c8b.js",
+    "precache-manifest.2bf0c581e99a691a97999e079dfadf90.js": "/ecommerce/precache-manifest.2bf0c581e99a691a97999e079dfadf90.js",
     "service-worker.js": "/ecommerce/service-worker.js",
-    "static/css/main.c0dad936.chunk.css.map": "/ecommerce/static/css/main.c0dad936.chunk.css.map",
+    "static/css/main.d2679203.chunk.css.map": "/ecommerce/static/css/main.d2679203.chunk.css.map",
     "static/js/2.b2015b9d.chunk.js.LICENSE.txt": "/ecommerce/static/js/2.b2015b9d.chunk.js.LICENSE.txt",
     "static/media/blue-hoodie-kotk.jpg": "/ecommerce/static/media/blue-hoodie-kotk.fa3c0e35.jpg",
     "static/media/got-hoodie.jpg": "/ecommerce/static/media/got-hoodie.bf130acb.jpg",
@@ -23,7 +23,7 @@
   "entrypoints": [
     "static/js/runtime-main.6c976267.js",
     "static/js/2.b2015b9d.chunk.js",
-    "static/css/main.c0dad936.chunk.css",
+    "static/css/main.d2679203.chunk.css",
     "static/js/main.d277f493.chunk.js"
   ]
 }
