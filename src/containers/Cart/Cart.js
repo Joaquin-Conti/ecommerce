@@ -45,8 +45,8 @@ function Cart(props) {
                 </div>
             </React.Fragment> : 
             <React.Fragment>
-                <h1 style={{textAlign: 'center'}}>You need to sign in to add products to your cart!</h1>
-                <LoginForm />
+                <h1 className={styles.LogInMsg}>You need to sign in to add products to your cart!</h1>
+                <LoginForm cart/>
             </React.Fragment>}
             
         </section>

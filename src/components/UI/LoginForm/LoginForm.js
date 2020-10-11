@@ -16,7 +16,7 @@ function LoginForm(props) {
     // }
     
     return (
-        <div className={`${styles.LoginForm} ${props.isRoute ? styles.SignInRoute : ''}`}>
+        <div className={`${styles.LoginForm} ${props.isRoute ? styles.SignInRoute : ''} ${props.cart ? styles.CartSignIn : ''}`}>
             {props.showText ? props.isLoggedIn ? <h2>You are logged in. <br />Have a nice shopping!</h2> : <h2>Sign up or login to get extra functionality!</h2> : null}
             <div className={styles.LogoDiv}>
                 <Logo modal/>
