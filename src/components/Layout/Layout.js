@@ -18,7 +18,7 @@ import Footer from '../../containers/Footer/Footer';
 function Layout(props) {
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([]);
-    // const [productMatch, setProductMatch] = useState(true);
+    const [productMatch, setProductMatch] = useState(false);
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
@@ -41,13 +41,13 @@ function Layout(props) {
             })
     }, [])
     
-    // useEffect(() => {
-    //     if (!productMatch && !loading) { 
-    //         props.onNoProductsFound() 
-    //     } else {
-    //         props.onProductsFound()
-    //     }
-    // }, [productMatch])
+    useEffect(() => {
+        if (!productMatch && !loading) { 
+            props.onNoProductsFound() 
+        } else {
+            props.onProductsFound()
+        }
+    }, [productMatch])
 
     useEffect(() => {
         searchClicked()
@@ -93,18 +93,16 @@ function Layout(props) {
 
     const searchClicked = () => {
         const newFilteredProducts = [];
-        products.map((productObj) => {
+        let productsFound = false;
+        const productsMapping = products.map((productObj) => {
             if (filterItem(productObj)) {
-                // setProductMatch(true)
+                productsFound = true
                 newFilteredProducts.push(productObj)
             };
         })
-        setFilteredProducts(newFilteredProducts)
-        // if (productMatch) {
-        //     props.onProductsFound()
-        // } else {
-        //     props.onNoProductsFound()
-        // }
+        Promise.all(productsMapping)
+            .then(() => setProductMatch(productsFound))
+            .then(() => setFilteredProducts(newFilteredProducts))
     }
 
     let modal = null

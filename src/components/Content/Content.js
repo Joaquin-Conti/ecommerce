@@ -1,5 +1,5 @@
 import React from 'react'
-import './Content.module.css'
+import styles from './Content.module.css'
 import ItemsWrapper from '../ItemsWrapper/ItemsWrapper'
 import { connect } from 'react-redux'
 
@@ -7,7 +7,7 @@ function Content(props) {
     return (
         <section id="products">
             {props.resultsAvailable === false ? null : (props.productsFound ? (props.showing === 'all' ? <h1>ALL PRODUCTS</h1> : 
-            <h1>{props.showing.toUpperCase()}</h1>) : <h1>No products match that search.</h1> )
+            <h1>{props.showing.toUpperCase()}</h1>) : <React.Fragment><h1>No products match that search.</h1> <br /> <i className={`far fa-frown fa-10x ${styles.FaceIcon}`}></i></React.Fragment>)
             }
             <ItemsWrapper 
                 loading={props.loading}
