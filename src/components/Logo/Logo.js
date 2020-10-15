@@ -6,8 +6,12 @@ import { Link } from 'react-router-dom'
 
 export default function Logo(props) {
     return (
-        <Link to="/ecommerce">
-            <img className={`${styles.KeoLogo} ${props.className} ${props.modal ? styles.ModalLogo : ''}`} src={logo} alt="logo-img" />
-        </Link>
+        props.refreshLink ? 
+            <a href="/ecommerce">
+                <img className={`${styles.KeoLogo} ${props.className} ${props.modal ? styles.ModalLogo : ''}`} src={logo} alt="logo-img" />
+            </a> :
+            <Link to="/ecommerce">
+                <img className={`${styles.KeoLogo} ${props.className} ${props.modal ? styles.ModalLogo : ''}`} src={logo} alt="logo-img" />
+            </Link>
     )
 }

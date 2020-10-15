@@ -12,7 +12,7 @@ function SearchButton(props) {
         onClick={() => {props.searchClicked(); nextPath('/ecommerce')}} 
         className={styles.SearchButton + ' ' + (props.sidebarIsOpen ? styles.Open : styles.Close) +
         ' ' + (props.desktop ? styles.Desktop : styles.Mobile)}>
-            Buscar
+            Search
         </button>
     )
 }

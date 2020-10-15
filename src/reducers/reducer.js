@@ -1,6 +1,6 @@
 const initialState = {
     products: [],
-    productsFound: true,
+    productsFound: false,
     isLoggedIn: false,
     sidebarIsOpen: false,
     showingLogin: false,

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 function Content(props) {
     return (
-        <section id="products">
+        <section>
             {props.resultsAvailable === false ? null : (props.productsFound ? (props.showing === 'all' ? <h1>ALL PRODUCTS</h1> : 
             <h1>{props.showing.toUpperCase()}</h1>) : <React.Fragment><h1 className={styles.NotFoundText}>No products match that search.</h1> <br /> <i className={`far fa-frown fa-10x ${styles.FaceIcon}`}></i></React.Fragment>)
             }

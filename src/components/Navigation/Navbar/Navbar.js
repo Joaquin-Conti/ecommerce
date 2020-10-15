@@ -14,6 +14,7 @@ function Navbar(props) {
         <nav className={styles.Navbar}>
             <div className={styles.LeftGroup}>
                 <Logo
+                    refreshLink
                     className={props.sidebarIsOpen ? styles.NotVisible : ''}
                 />
                 <div className={`${styles.Cart} ${styles.MobileCart} ${props.sidebarIsOpen ? styles.NotVisible : ''}`}>

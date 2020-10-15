@@ -14,7 +14,7 @@ function Sidebar(props) {
     return (
         <div className={styles.Sidebar + ' ' + (props.sidebarIsOpen ? styles.Open : styles.Close)}>
             {/* <div className={styles.NavFixed}> */}
-                <Logo className={styles.Logo}/>
+                <Logo refreshLink className={styles.Logo}/>
                 {/* <NavLink to="/signin" className={styles.LoginBtn}>Welcome to KEO! <br/> Login/Signup</NavLink> */}
                 <Welcome sidebar/>
                 {/* <SearchBar /> */}
